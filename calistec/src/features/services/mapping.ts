@@ -28,7 +28,7 @@ export function mapSupabaseRowToExe(
 /**
  * Al Supabase
  */
-export function mapProductToSupabaseRow(
+export function mapExeToSupabaseRow(
         product: ExerciseFormData
     ): SupabaseExeRow {
         return {
