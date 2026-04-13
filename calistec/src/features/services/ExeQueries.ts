@@ -39,7 +39,7 @@ export async function getExe(): Promise<Exercise[]> {
 }
 
 // Get operation -- only an exercise from Id
-export async function getProductById(id: string): Promise<Exercise> {
+export async function getExeById(id: string): Promise<Exercise> {
   const supabase = createClient();
 
   const { data, error } = await supabase
@@ -56,7 +56,7 @@ export async function getProductById(id: string): Promise<Exercise> {
 }
 
 // Put operation -- update a selected exercise 
-export async function updateProduct(id: string, product: ExerciseFormData): Promise<Exercise> {
+export async function updateExe(id: string, product: ExerciseFormData): Promise<Exercise> {
   const supabase = createClient();
   const supabaseRow = mapExeToSupabaseRow(product);
 
@@ -75,7 +75,7 @@ export async function updateProduct(id: string, product: ExerciseFormData): Prom
 }
 
 // Delete operation -- remove a selected exercise 
-export async function deleteProduct(id: string): Promise<void> {
+export async function deleteExe(id: string): Promise<void> {
   const supabase = createClient();
 
   const { error } = await supabase
@@ -89,7 +89,7 @@ export async function deleteProduct(id: string): Promise<void> {
 }
 
 // Get filtered exercises
-export async function getProductFilterOptions(): Promise<{
+export async function getExeFilterOptions(): Promise<{
     focus: string[];
     movement: string[];
     level: string[];
