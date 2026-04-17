@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { AddExeSelectField } from "@/app/components/Form_fields/AddExeSelectField";
+import { AddExeTextField } from "@/app/components/Form_fields/AddExeTextField";
 import { AddExeCloseIcon } from "@/app/components/icons/AddExeCloseIcon";
 import type { Exercise, ExerciseFormData } from "@/features/types/exe-types";
 import { INITIAL_EXERCISE_FORM } from "@/utils/formats";
@@ -62,6 +63,12 @@ export function EditExeModal({exercise, onUpdateExercise, onClose }: AddProductM
                     <div className="space-y-8">
                         <section className="space-y-5">
                             <div className="grid gap-5 md:grid-cols-2">
+                                <AddExeTextField 
+                                    label="Nombre del ejercicio"
+                                    placeholder="Ej: Pull ups"
+                                    value={form.exercise}
+                                    onChange={(value) => updateField("exercise", value)}
+                                />
                                 <AddExeSelectField
                                     label="Enfoque del ejercicio"
                                     required
