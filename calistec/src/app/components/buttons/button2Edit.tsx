@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { PlusIcon } from "@/app/components/icons/PlusIcon";
+import { EditIcon } from "@/app/components/icons/EditIcon";
 import { EditExeModal } from "@/app/components/modals/EditExeModal";
 import type { Exercise } from "@/features/types/exe-types";
 
@@ -17,10 +17,11 @@ export default function Button2Edit({ exercise, onUpdateExercise }: Button2EditP
     <div>
         <button
             onClick={() => setOpen(true)}
-            className="inline-flex items-center gap-2 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+            className="table-icon-button icon-button--edit"
+            type="button"
+            title="Editar ejercicio"
         >
-            <PlusIcon />
-            <span>Añadir Ejercicio</span>
+            <EditIcon />
         </button>
 
         {open && (

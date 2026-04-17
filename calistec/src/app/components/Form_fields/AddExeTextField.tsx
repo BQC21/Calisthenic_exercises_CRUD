@@ -24,7 +24,7 @@ export function AddExeTextField({
         placeholder={placeholder}
         value={value}
         onChange={(event) => onChange(event.target.value)}
-        className="w-full rounded-xl border border-slate-300 px-4 py-3 text-lg text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-indigo-700 focus:ring-2 focus:ring-indigo-100"
+        className="w-full rounded-xl border border-emerald-400/15 bg-[#070b08] px-4 py-3 text-sm text-emerald-50 outline-none transition placeholder:text-emerald-100/35 focus:border-emerald-400/50 focus:ring-2 focus:ring-emerald-400/15"
       />
     </div>
   );

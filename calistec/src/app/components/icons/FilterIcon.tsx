@@ -2,7 +2,7 @@ export function FilterIcon() {
     return (
             <svg
                 aria-hidden="true"
-                className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-slate-400"
+                className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-emerald-300/70"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"

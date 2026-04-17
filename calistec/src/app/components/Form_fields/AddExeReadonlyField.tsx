@@ -9,7 +9,7 @@ export function AddExeReadonlyField({ label, value }: AddProductReadonlyFieldPro
     return (
         <div>
         <AddExeFieldLabel label={label} />
-        <div className="rounded-xl border border-slate-200 bg-slate-100 px-4 py-3 text-lg text-slate-700">{value}</div>
+        <div className="rounded-xl border border-emerald-400/15 bg-black/35 px-4 py-3 text-sm text-emerald-50">{value}</div>
         </div>
     );
 }

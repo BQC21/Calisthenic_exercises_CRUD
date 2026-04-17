@@ -47,40 +47,50 @@ export default function Page() {
     return (
         <main className="min-h-screen bg-[var(--page-bg)] text-[var(--foreground)]">
             <div className="mx-auto flex w-full max-w-7xl flex-col gap-6 px-3 py-5 sm:px-6 lg:px-8">
-            <section className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                <div className="space-y-1">
-                <h1 className="text-3xl font-bold tracking-[-0.02em] text-slate-900">
-                    Biblioteca de ejercicios
-                </h1>
-                </div>
+                <section className="surface-card px-5 py-5 sm:px-6 sm:py-6 lg:px-8">
+                    <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+                        <div className="max-w-2xl space-y-3">
+                            <span className="inline-flex rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-200">
+                                CalistWeight
+                            </span>
+                            <div className="space-y-2">
+                                <h1 className="hero-title text-4xl font-black tracking-[-0.04em] sm:text-5xl">
+                                    Biblioteca de ejercicios
+                                </h1>
+                                <p className="hero-subtitle max-w-xl text-base leading-7 sm:text-lg">
+                                    Explora, filtra y administra tu catálogo de movimientos con una interfaz más limpia y de alto contraste.
+                                </p>
+                            </div>
+                        </div>
 
-                <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-                <Button2Add
-                    onAddProduct={handleAddProduct}
+                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
+                            <div className="rounded-2xl border border-emerald-400/15 bg-black/30 px-4 py-3 text-sm text-emerald-100/80">
+                                <div className="text-xs uppercase tracking-[0.22em] text-emerald-300/70">Total registrados</div>
+                                <div className="mt-1 text-2xl font-black text-white">{exercises.length}</div>
+                            </div>
+                            <Button2Add onAddProduct={handleAddProduct} />
+                        </div>
+                    </div>
+                </section>
+
+                <section className="panel">
+                    <ExeFilter
+                        values={filters}
+                        onFilterChange={(key: keyof ExeFilterValues, value: string) =>
+                            setFilters((current: ExeFilterValues) => ({
+                                ...current,
+                                [key]: value,
+                            }))
+                        }
+                    />
+                </section>
+
+                <ExeTable
+                    exercises={filteredExercises}
+                    totalExecises={exercises.length}
+                    onUpdateExercise={handleUpdateProduct}
+                    onDeleteExercise={handleDeleteProduct}
                 />
-                </div>
-            </section>
-
-            <section className="panel">
-                <div className="space-y-6">
-                <ExeFilter
-                    values={filters}
-                    onFilterChange={(key: keyof ExeFilterValues, value: string) =>
-                    setFilters((current: ExeFilterValues) => ({
-                        ...current,
-                        [key]: value,
-                    }))
-                    }
-                />
-                </div>
-            </section>
-
-            <ExeTable 
-                exercises={filteredExercises}
-                totalExecises={exercises.length}
-                onUpdateExercise={handleUpdateProduct}
-                onDeleteExercise={handleDeleteProduct}
-            />
             </div>
         </main>
     );

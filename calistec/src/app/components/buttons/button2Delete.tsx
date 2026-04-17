@@ -18,7 +18,7 @@ export function Button2Delete({ exercise, onDeleteExercise }: DeleteExeModalProp
         <button
             type="button"
             onClick={() => setOpen(true)}
-            className="table-icon-button text-indigo-600"
+            className="table-icon-button icon-button--delete"
             title="Eliminar ejercicio"
         >
             <DeleteIcon />

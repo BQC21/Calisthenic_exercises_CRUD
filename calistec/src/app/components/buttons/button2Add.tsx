@@ -16,10 +16,10 @@ export default function Button2Modal({ onAddProduct }: Button2ModalProps) {
     <div>
         <button
             onClick={() => setOpen(true)}
-            className="inline-flex items-center gap-2 rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
+            className="action-button action-button--success"
         >
             <PlusIcon />
-            <span>Añadir Producto</span>
+            <span>Añadir ejercicio</span>
         </button>
 
         {open && (
