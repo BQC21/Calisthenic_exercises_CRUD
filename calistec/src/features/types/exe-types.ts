@@ -1,5 +1,5 @@
 
-// Campos para la base de datos para los productos
+// Campos para la base de datos
 export type Exercise = {
     id: string;
     exercise: string;
@@ -9,10 +9,10 @@ export type Exercise = {
     type: string;
 };
 
-// Estado del formulario para agregar o editar productos
+// Estado del formulario para agregar o editar
 export type ExerciseFormData = Omit<Exercise, "id">;
     
-// Estado de la visualización de productos
+// Estado de la visualización
 export interface UseExercisesResult {
     exercises: Exercise[];
     loading: boolean;
@@ -20,7 +20,7 @@ export interface UseExercisesResult {
     refetch: () => Promise<void>;
 }
 
-// Opciones para el filtrado de productos
+// Opciones para el filtrado
 export type ExerciseFilterOptions = {
     focus: string[];
     movement: string[];
@@ -28,7 +28,7 @@ export type ExerciseFilterOptions = {
     type: string[];
 };
 
-// Mostrar tabla de productos modificadas
+// Mostrar tabla modificada
 export interface UseExerciseMutationsResult {
     loading: boolean;
     error: string | null;
