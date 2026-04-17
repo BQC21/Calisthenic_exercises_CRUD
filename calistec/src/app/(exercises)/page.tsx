@@ -51,7 +51,7 @@ export default function Page() {
                     <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
                         <div className="max-w-2xl space-y-3">
                             <span className="inline-flex rounded-full border border-emerald-400/20 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-emerald-200">
-                                CalistWeight
+                                CalisTEC
                             </span>
                             <div className="space-y-2">
                                 <h1 className="hero-title text-4xl font-black tracking-[-0.04em] sm:text-5xl">
