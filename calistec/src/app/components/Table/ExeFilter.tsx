@@ -73,21 +73,6 @@ export function ExeFilter({ values, onFilterChange }: ExeFiltersProps) {
                     </label>
                 ))}
             </div>
-
-            <div className="flex flex-wrap items-center gap-2">
-                <span className="text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200/60">
-                    Vista rápida
-                </span>
-                {["Todos", "Empuje", "Tirón", "Piernas", "Core", "Balance"].map((item, index) => (
-                    <button
-                        key={item}
-                        type="button"
-                        className={`chip px-4 py-2 text-sm font-semibold ${index === 0 ? "chip--active" : ""}`}
-                    >
-                        {item}
-                    </button>
-                ))}
-            </div>
         </div>
     );
 }

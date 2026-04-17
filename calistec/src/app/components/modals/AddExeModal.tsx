@@ -60,6 +60,12 @@ export function AddExeModal({onAddProduct, onClose }: AddProductModalProps) {
                     <div className="space-y-8">
                         <section className="space-y-5">
                             <div className="grid gap-5 md:grid-cols-2">
+                                <AddExeTextField 
+                                    label="Nombre del ejercicio"
+                                    placeholder="Ej: Pull ups"
+                                    value={form.exercise}
+                                    onChange={(value) => updateField("exercise", value)}
+                                />
                                 <AddExeSelectField
                                     label="Enfoque del ejercicio"
                                     required
@@ -68,14 +74,14 @@ export function AddExeModal({onAddProduct, onClose }: AddProductModalProps) {
                                     onChange={(value) => updateField("focus", value)}
                                 />
                                 <AddExeSelectField
-                                    label="Dirección de movimient"
+                                    label="Dirección de movimiento"
                                     required
                                     value={form.movement}
                                     options={MOVEMENT_OPTIONS}
                                     onChange={(value) => updateField("movement", value)}
                                 />
                                 <AddExeSelectField
-                                    label="Nivel de ejercicio"
+                                    label="Nivel del ejercicio"
                                     required
                                     value={form.level}
                                     options={LEVEL_OPTIONS}

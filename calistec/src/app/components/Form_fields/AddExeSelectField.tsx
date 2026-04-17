@@ -1,3 +1,4 @@
+import { AddExeFieldLabel } from "@/app/components/Form_fields/AddExeFieldLabel";
 
 type AddExeSelectFieldProps = {
   label: string;
@@ -18,6 +19,7 @@ export function AddExeSelectField({
 }: AddExeSelectFieldProps) {
   return (
     <div>
+      <AddExeFieldLabel label={label} required={required} />
       <select
         required={required}
         disabled={disabled}
