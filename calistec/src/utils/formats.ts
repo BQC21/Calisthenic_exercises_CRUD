@@ -37,3 +37,13 @@ export const INITIAL_EXERCISE_FORM: ExerciseFormState = {
 	level: LEVEL_OPTIONS[0],
 	type: TYPE_OPTIONS[0],
 };
+
+export function createExeFormStateFromExe(exercise: Exercise): ExerciseFormState {
+	return {
+		exercise: exercise.exercise,
+		focus: exercise.focus,
+		movement: exercise.movement,
+		level: exercise.level,
+		type: exercise.type,
+	};	
+};

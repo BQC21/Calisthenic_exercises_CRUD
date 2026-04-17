@@ -2,9 +2,9 @@
 "use client";
 
 import { useState } from "react";
-import { ExeFilters, type ExeFilterValues } from "@/components/Table/ExeFilters";
-import { ExeTable } from "@/components/Table/ExeTable";
-import Button2Modal from "@/app/components/buttons/button2Add";
+import { ExeFilter, type ExeFilterValues } from "@/app/components/Table/ExeFilter";
+import { ExeTable } from "@/app/components/Table/ExeTable";
+import Button2Add from "@/app/components/buttons/button2Add";
 import { useExerciseMutations, useExercise } from "@/features/hooks/useRealtimeExe";
 import type { Exercise, ExerciseFormData } from "@/features/types/exe-types";
 
@@ -55,7 +55,7 @@ export default function Page() {
                 </div>
 
                 <div className="flex flex-col gap-3 sm:flex-row sm:justify-end">
-                <Button2Modal
+                <Button2Add
                     onAddProduct={handleAddProduct}
                 />
                 </div>
@@ -63,10 +63,10 @@ export default function Page() {
 
             <section className="panel">
                 <div className="space-y-6">
-                <ExeFilters
+                <ExeFilter
                     values={filters}
-                    onFilterChange={(key, value) =>
-                    setFilters((current) => ({
+                    onFilterChange={(key: keyof ExeFilterValues, value: string) =>
+                    setFilters((current: ExeFilterValues) => ({
                         ...current,
                         [key]: value,
                     }))
@@ -76,10 +76,10 @@ export default function Page() {
             </section>
 
             <ExeTable 
-                products={filteredExercises}
-                totalProducts={exercises.length}
-                onUpdateProduct={handleUpdateProduct}
-                onDeleteProduct={handleDeleteProduct}
+                exercises={filteredExercises}
+                totalExecises={exercises.length}
+                onUpdateExercise={handleUpdateProduct}
+                onDeleteExercise={handleDeleteProduct}
             />
             </div>
         </main>

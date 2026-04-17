@@ -99,7 +99,7 @@ export function AddExeModal({onAddProduct, onClose }: AddProductModalProps) {
                             type="submit"
                             className="rounded-xl bg-indigo-700 px-6 py-3 text-lg font-semibold text-white transition hover:bg-indigo-800"
                         >
-                            Añadir Producto
+                            Añadir Ejercicio
                         </button>
                     </div>
                     </div>
