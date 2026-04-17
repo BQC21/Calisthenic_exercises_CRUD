@@ -9,7 +9,7 @@ const FILTERS = [
         id: "focus",
         label: "Filtrar por enfoque",
         placeholder: "Todos los enfoques",
-        content: ["PULL", "PUSH", "LEGS", "CORE", "BALANCE"],
+        content: ["Pull", "Push", "Legs", "Core", "Balance"],
     },
     {
         id: "movement",
