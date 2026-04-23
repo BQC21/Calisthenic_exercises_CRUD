@@ -5,12 +5,12 @@ import { AddExeSelectField } from "@/app/components/Form_fields/AddExeSelectFiel
 import { AddExeTextField } from "@/app/components/Form_fields/AddExeTextField";
 import { AddExeCloseIcon } from "@/app/components/icons/AddExeCloseIcon";
 import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
-import { INITIAL_EXERCISE_FORM } from "@/lib/utils/formats";
+import { INITIAL_EXERCISE_FORM } from "@/lib/utils/initialValues";
 
 import {
     FOCUS_OPTIONS, MOVEMENT_OPTIONS,
     LEVEL_OPTIONS, TYPE_OPTIONS
-} from "@/lib/utils/formats";
+} from "@/lib/utils/options";
 
 // --- Tipo de variables ---
 type AddProductModalProps = {

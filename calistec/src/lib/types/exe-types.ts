@@ -11,7 +11,8 @@ export type Exercise = {
 
 // Estado del formulario para agregar o editar
 export type ExerciseFormData = Omit<Exercise, "id">;
-    
+export type ExerciseFormState = Omit<Exercise, "id">;
+
 // Estado de la visualización
 export interface UseExercisesResult {
     exercises: Exercise[];
