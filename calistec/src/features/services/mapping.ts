@@ -2,7 +2,7 @@ import type { Exercise, ExerciseFormData } from "@/features/types/exe-types";
 
 export type SupabaseExeRow = {
     id?: number | string;
-    exercise?: string;
+    exercises?: string;
     focus?: string;
     movement?: string;
     level?: string;
@@ -17,7 +17,7 @@ export function mapSupabaseRowToExe(
     ): Exercise {
         return {
             id: row.id?.toString() || "",
-            exercise: row.exercise || "",
+            exercise: row.exercises || "",
             focus: row.focus || "",
             movement: row.movement || "",
             level: row.level || "",
@@ -32,7 +32,7 @@ export function mapExeToSupabaseRow(
         product: ExerciseFormData
     ): SupabaseExeRow {
         return {
-            exercise: product.exercise,
+            exercises: product.exercise,
             focus: product.focus,
             movement: product.movement,
             level: product.level,

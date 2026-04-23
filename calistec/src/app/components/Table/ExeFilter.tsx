@@ -14,7 +14,7 @@ const FILTERS = [
     {
         id: "movement",
         label: "Filtrar por tipo de movimiento",
-        placeholder: "Todas los tipos de movimiento",
+        placeholder: "Todos los tipos de movimiento",
         content: ["Horizontal", "Vertical", "Diagonal"],
     },
     {
