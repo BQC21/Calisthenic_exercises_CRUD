@@ -15,7 +15,7 @@ import type {
     UseExercisesResult,
     ExerciseFilterOptions,
     UseExerciseMutationsResult,
-} from "@/features/types/exe-types";
+} from "@/lib/types/exe-types";
 
 import { createClient } from "@/lib/supabase/client";
 

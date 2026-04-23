@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { EditIcon } from "@/app/components/icons/EditIcon";
 import { EditExeModal } from "@/app/components/modals/EditExeModal";
-import type { Exercise } from "@/features/types/exe-types";
+import type { Exercise } from "@/lib/types/exe-types";
 
 type Button2EditProps = {
     exercise: Exercise;

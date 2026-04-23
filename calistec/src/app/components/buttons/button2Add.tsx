@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { PlusIcon } from "@/app/components/icons/PlusIcon";
 import { AddExeModal } from "@/app/components/modals/AddExeModal";
-import type { ExerciseFormData } from "@/features/types/exe-types";
+import type { ExerciseFormData } from "@/lib/types/exe-types";
 
 type Button2ModalProps = {
     onAddProduct: (product: ExerciseFormData) => void;

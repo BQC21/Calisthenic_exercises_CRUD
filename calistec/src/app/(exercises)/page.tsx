@@ -6,7 +6,7 @@ import { ExeFilter, type ExeFilterValues } from "@/app/components/Table/ExeFilte
 import { ExeTable } from "@/app/components/Table/ExeTable";
 import Button2Add from "@/app/components/buttons/button2Add";
 import { useExerciseMutations, useExercise } from "@/features/hooks/useRealtimeExe";
-import type { Exercise, ExerciseFormData } from "@/features/types/exe-types";
+import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
 
 export default function Page() {
 

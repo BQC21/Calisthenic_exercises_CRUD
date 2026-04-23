@@ -1,4 +1,4 @@
-import type { Exercise, ExerciseFormData } from "@/features/types/exe-types";
+import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
 
 export type SupabaseExeRow = {
     id?: number | string;

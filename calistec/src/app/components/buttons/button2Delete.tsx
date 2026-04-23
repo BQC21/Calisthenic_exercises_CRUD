@@ -3,7 +3,7 @@
 import { DeleteExeModal } from "@/app/components/modals/DeleteExeModal";
 import { DeleteIcon } from "@/app/components/icons/DeleteIcon";
 import { useState } from "react";
-import { Exercise } from "@/features/types/exe-types";
+import { Exercise } from "@/lib/types/exe-types";
 
 type DeleteExeModalProps = {
     exercise: Exercise;

@@ -2,7 +2,7 @@
 
 import { AddExeCloseIcon } from "@/app/components/icons/AddExeCloseIcon";
 import { AddExeReadonlyField } from "@/app/components/Form_fields/AddExeReadonlyField";
-import type { Exercise } from "@/features/types/exe-types";
+import type { Exercise } from "@/lib/types/exe-types";
 
 // --- Tipo de variables ---
 type DeleteExeModalProps = {
