@@ -1,4 +1,4 @@
-import type { Exercise } from "@/features/types/exe-types";
+import type { Exercise } from "@/lib/types/exe-types";
 
 export type ExerciseFormState = Omit<Exercise, "id">;
 
