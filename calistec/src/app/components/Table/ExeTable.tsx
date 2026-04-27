@@ -1,5 +1,5 @@
-import Button2Edit from "@/app/components/buttons/button2Edit";
-import { Button2Delete } from "@/app/components/buttons/button2Delete";
+import Button2Edit from "@/app/components/buttons/exercises/button2Edit";
+import { Button2Delete } from "@/app/components/buttons/exercises/button2Delete";
 import type { Exercise } from "@/lib/types/exe-types";
 
 const TABLE_HEADERS = [
