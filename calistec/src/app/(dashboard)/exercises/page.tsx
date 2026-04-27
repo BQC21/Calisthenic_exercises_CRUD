@@ -4,7 +4,7 @@
 import { useState } from "react";
 import { ExeFilter, type ExeFilterValues } from "@/app/components/Table/ExeFilter";
 import { ExeTable } from "@/app/components/Table/ExeTable";
-import Button2Add from "@/app/components/buttons/button2Add";
+import Button2Add from "@/app/components/buttons/exercises/button2Add";
 import { useExerciseMutations, useExercise } from "@/features/hooks/useRealtimeExe";
 import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
 

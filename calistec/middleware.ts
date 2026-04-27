@@ -28,7 +28,8 @@ export async function middleware(request: NextRequest) {
 
     const { pathname } = request.nextUrl;
     const isRootRoute = pathname === "/";
-    const isProtectedRoute = pathname.startsWith("/dashboard") || pathname.startsWith("/products");
+    const isProtectedRoute = pathname.startsWith("/main") 
+            || pathname.startsWith("/exercises") || pathname.startsWith("/routines");
     const isLoginRoute = pathname.startsWith("/login");
 
 
@@ -43,7 +44,7 @@ export async function middleware(request: NextRequest) {
     // direccionamiento a dashboard
     if (isLoginRoute && user) {
         const dashboardUrl = request.nextUrl.clone();
-        dashboardUrl.pathname = "/dashboard";
+        dashboardUrl.pathname = "/main";
         dashboardUrl.search = "";
         return NextResponse.redirect(dashboardUrl);
     }
@@ -52,5 +53,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ["/exercises/:path*", "/routines/:path*", "/login"],
+    matcher: ["/main/:path*", "/exercises/:path*", "/routines/:path*", "/login"],
 };
