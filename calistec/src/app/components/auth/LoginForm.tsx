@@ -45,7 +45,7 @@ export function LoginForm() {
             }
 
             // en caso de éxito navegarlo al dashboard principal
-            router.replace("/dashboard");
+            router.replace("/main");
             router.refresh(); // actualizar la vista con refresco de datos
         } finally {
             setIsLoading(false); // quita el indicador de carga 
