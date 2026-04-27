@@ -61,74 +61,72 @@ export function PortalShell({ title, subtitle, activePath, children }: PortalShe
     }
 
     return (
-        <main className="min-h-screen bg-[#f6f8fc] text-slate-900">
-            <div className="flex min-h-screen flex-col">
-                {/* Encabezado */}
-                <header className="flex flex-col gap-4 border-b border-slate-200 bg-white px-6 py-4 shadow-sm md:h-24 md:flex-row md:items-center md:justify-between md:py-0">
-                    <div className="flex items-center gap-4">
-                        <div>
-                            <h1 className="text-2xl font-semibold tracking-tight text-slate-800">
-                                TEC Energy Solutions
-                            </h1>
-                            <p className="text-sm text-slate-500">Portal Corporativo</p>
-                        </div>
-                    </div>
-
-                    <div className="flex items-center gap-3 self-start md:self-auto">
-                        <div className="hidden text-right sm:block">
-                            <p className="text-xs uppercase tracking-[0.2em] text-slate-400">Sesión activa</p>
-                            <p className="text-sm font-semibold text-slate-700">
-                                {userEmail ?? "Usuario autenticado"}
-                            </p>
-                        </div>
-
-                        <button
-                            type="button"
-                            onClick={handleSignOut}
-                            disabled={isSigningOut}
-                            className="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-slate-300 hover:bg-slate-100 disabled:cursor-not-allowed disabled:opacity-60"
-                        >
-                            {isSigningOut ? "Saliendo..." : "Cerrar sesión"}
-                        </button>
-                    </div>
-                </header>
-                {/* Barra de navegación vertical */}
-                <div className="grid flex-1 grid-cols-1 lg:grid-cols-[320px_1fr]">
-                    <aside className="border-r border-slate-200 bg-[#f8fafc] px-4 py-6">
-                        <nav className="space-y-4">
-                            {navigation.map((item) => {
-                                const isActive = item.href === activePath; // indicador de activación
-
-                                return (
-                                    <Link
-                                        key={item.label}
-                                        href={item.href}
-                                        className={[
-                                            "flex items-center gap-4 rounded-2xl px-6 py-4 text-lg font-semibold transition",
-                                            isActive
-                                                ? "bg-[#2f4ea8] text-white shadow-lg shadow-[#2f4ea8]/20"
-                                                : "text-slate-400 hover:bg-slate-100 hover:text-slate-700",
-                                        ].join(" ")}
-                                    >
-                                        <span className="text-2xl">{isActive ? "⌂" : "◻"}</span>
-                                        <span>{item.label}</span>
-                                    </Link>
-                                );
-                            })}
-                        </nav>
-                    </aside>
-                    {/* Contenido del módulo */}
-                    <section className="px-6 py-8 lg:px-8">
-                        <div className="mx-auto max-w-7xl space-y-8">
+        <main className="min-h-screen bg-[var(--page-bg)] text-[var(--foreground)]">
+            <div className="flex min-h-screen flex-col bg-[var(--page-bg)]">
+                <header className="border-b border-[rgba(34,197,94,0.16)] bg-[rgba(6,9,7,0.96)] px-4 py-4 backdrop-blur md:px-6">
+                    <div className="mx-auto flex w-full max-w-7xl flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+                        <div className="flex items-center justify-between gap-4">
                             <div>
-                                <h2 className="text-4xl font-bold tracking-tight text-slate-900">{title}</h2>
-                                <p className="mt-4 text-xl text-slate-500">{subtitle}</p>
+                                <h1 className="text-xl font-semibold tracking-tight text-[var(--accent-strong)] sm:text-2xl">
+                                    CalisTEC
+                                </h1>
+                                <p className="mt-1 text-xs uppercase tracking-[0.28em] text-[var(--muted-foreground)]">
+                                    Portal de entrenamiento
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="flex items-center gap-3">
+                            <div className="hidden text-right sm:block">
+                                <p className="text-xs uppercase tracking-[0.2em] text-[var(--muted-foreground)]">Perfil</p>
+                                <p className="text-sm font-semibold text-[var(--foreground)]">
+                                    {userEmail ?? "Usuario autenticado"}
+                                </p>
                             </div>
 
-                            {children}
+                            <button
+                                type="button"
+                                onClick={handleSignOut}
+                                disabled={isSigningOut}
+                                className="soft-button rounded-full px-4 py-2 text-sm font-semibold disabled:cursor-not-allowed disabled:opacity-60"
+                            >
+                                {isSigningOut ? "Saliendo..." : "Cerrar sesión"}
+                            </button>
                         </div>
-                    </section>
-                </div>
+                    </div>
+
+                    <nav className="mx-auto mt-4 flex w-full max-w-7xl flex-wrap items-center gap-2 overflow-x-auto pb-1">
+                        {navigation.map((item) => {
+                            const isActive = item.href === activePath;
+
+                            return (
+                                <Link
+                                    key={item.label}
+                                    href={item.href}
+                                    className={[
+                                        "chip px-4 py-2 text-sm font-semibold transition",
+                                        isActive
+                                            ? "chip--active shadow-[0_10px_24px_rgba(16,185,129,0.14)]"
+                                            : "hover:border-[rgba(16,185,129,0.28)] hover:text-[#d8fff0]",
+                                    ].join(" ")}
+                                >
+                                    {item.label}
+                                </Link>
+                            );
+                        })}
+                    </nav>
+                </header>
+
+                <section className="flex-1 px-4 py-8 sm:px-6 lg:px-8">
+                    <div className="mx-auto flex w-full max-w-7xl flex-col gap-8">
+                        <div className="space-y-3">
+                            <h2 className="hero-title text-3xl font-bold tracking-tight sm:text-4xl">{title}</h2>
+                            <p className="hero-subtitle max-w-3xl text-base sm:text-lg">{subtitle}</p>
+                        </div>
+
+                        <div className="surface-card p-4 sm:p-6">{children}</div>
+                    </div>
+                </section>
             </div>
         </main>
     );
