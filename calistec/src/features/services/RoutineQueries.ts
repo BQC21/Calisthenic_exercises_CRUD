@@ -66,7 +66,7 @@ export async function getRoutineById(id: string): Promise<Routine> {
 }
 
 // Put operation
-export async function updateExe(id: string, routine: Routine): Promise<Routine> {
+export async function updateRoutine(id: string, routine: Routine): Promise<Routine> {
     const supabase = createClient();
     const supabaseRow = mapRoutineToSupabaseRow(routine);
 
