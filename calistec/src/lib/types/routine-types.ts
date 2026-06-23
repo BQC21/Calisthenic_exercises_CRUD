@@ -35,7 +35,7 @@ export interface UseRoutineResult {
 export interface UseRoutineMutationsResult {
     loading: boolean;
     error: string | null;
-    create: (exercise: RoutineFormData) => Promise<Routine>;
-    update: (id: string, exercise: RoutineFormData) => Promise<Routine>;
+    create: (routine: RoutineFormData) => Promise<Routine>;
+    update: (id: string, routine: RoutineFormData) => Promise<Routine>;
     remove: (id: string) => Promise<void>;
 }
