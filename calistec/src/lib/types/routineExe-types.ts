@@ -15,11 +15,11 @@ export type SupabaseExercise_RoutineRow = {
 }
 
 export type Exercise_Routine = {
-    id: number | string;
-    exercise_id: number | string;
-    exercise_info: Exercise;
-    routine_id: number | string;
-    routine_info: Routine;
+    id: number | string | undefined;
+    exercise_id: number | string | undefined;
+    exercise_info: Exercise | undefined;
+    routine_id: number | string | undefined;
+    routine_info: Routine | undefined;
 }
 
 export type UseExercise_RoutineResult = {

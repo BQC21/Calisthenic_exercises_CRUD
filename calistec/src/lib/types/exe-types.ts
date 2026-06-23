@@ -16,12 +16,12 @@ export type SupabaseExerciseRow = {
 
 // Campos para la tabla
 export type Exercise = {
-    id: number | string;
-    title: string;
-    focus: string;
-    level: string;
-    created_at: Date | string | null;
-    updated_at: Date | string | null;
+    id: number | string | undefined;
+    title: string | undefined;
+    focus: string | undefined;
+    level: string | undefined;
+    created_at: Date | string | null | undefined;
+    updated_at: Date | string | null | undefined;
 };
 
 // Estado de la visualización
