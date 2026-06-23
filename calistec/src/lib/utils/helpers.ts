@@ -1,11 +1,7 @@
-import type { Exercise, ExerciseFormState } from "@/lib/types/exe-types";
+// función para imprimir valores nullables de fecha en un formato legible, o un guion si el valor es inválido o nulo
+export function parseNullableDate(value: Date | string | null | undefined): Date | null {
+	if (!value) return null;
 
-export function createExeFormStateFromExe(exercise: Exercise): ExerciseFormState {
-	return {
-		exercise: exercise.exercise,
-		focus: exercise.focus,
-		movement: exercise.movement,
-		level: exercise.level,
-		type: exercise.type,
-	};	
-};
+	const date = value instanceof Date ? value : new Date(value);
+	return Number.isNaN(date.getTime()) ? null : date;
+}
