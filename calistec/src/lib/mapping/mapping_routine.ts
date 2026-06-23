@@ -35,7 +35,7 @@ export function mapSupabaseRowToRoutine(
 /**
  * Al Supabase
  */
-export function mapExeToSupabaseRow(
+export function mapRoutineToSupabaseRow(
         routine: RoutineFormData
     ): SupabaseRoutineRow {
         return {
