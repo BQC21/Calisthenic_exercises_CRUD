@@ -1,11 +1,11 @@
 import { mapRoutineToSupabaseRow, mapSupabaseRowToRoutine } from "@/lib/mapping/mapping_routine";
 import { createClient } from "@/lib/supabase/client";
-import { Routine } from "@/lib/types/routine-types";
+import { Routine, RoutineFormData } from "@/lib/types/routine-types";
 
 const ROUTINES_TABLE = 'rutinas';
 
 // Post operation
-export async function createRoutine(routine: Routine): Promise<Routine> {
+export async function createRoutine(routine: RoutineFormData): Promise<Routine> {
     const supabase = createClient();
     const supabaseRow = mapRoutineToSupabaseRow(routine);
 
