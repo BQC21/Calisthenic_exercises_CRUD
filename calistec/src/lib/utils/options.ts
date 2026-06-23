@@ -1,26 +1,17 @@
 export const FOCUS_OPTIONS = [
-	"PUSH",
-	"PULL",
+	"---",
+	"FRONT LEVER",
+	"MUSCLE UP",
 	"CORE",
-	"LEGS",
-	"BALANCE",
+	"BÁSICO",
 ];
 
-export const MOVEMENT_OPTIONS = [
-	"Horizontal",
-	"Vertical",
-	"Diagonal",
-];
 
 export const LEVEL_OPTIONS = [
-	"Newbie",
+	"---",
 	"Beginner",
 	"Intermediate",
 	"Advanced",
 	"Elite",
 ];
 
-export const TYPE_OPTIONS = [
-	"Reps",
-	"Time",
-];

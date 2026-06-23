@@ -1,10 +1,28 @@
 import type { ExerciseFormState } from "@/lib/types/exe-types";
-import { FOCUS_OPTIONS, MOVEMENT_OPTIONS, LEVEL_OPTIONS, TYPE_OPTIONS } from "@/lib/utils/options";
+import { FOCUS_OPTIONS, LEVEL_OPTIONS } from "./options";
+import { RoutineFormState } from "../types/routine-types";
+import { Exercise_RoutineFormState } from "../types/routineExe-types";
 
 export const INITIAL_EXERCISE_FORM: ExerciseFormState = {
-    exercise: " ",
+    title: " ",
     focus: FOCUS_OPTIONS[0],
-    movement: MOVEMENT_OPTIONS[0],
     level: LEVEL_OPTIONS[0],
-    type: TYPE_OPTIONS[0],
+    created_at: new Date(),
+    updated_at: new Date()
 };
+
+export const INITIAL_ROUTINE_FORM: RoutineFormState = {
+    title: " ",
+    created_at: new Date(),
+    updated_at: new Date(),
+    description: " ",
+    time_init: new Date(),
+    time_finish: new Date(),
+}
+
+export const INITUAL_ROUTINE_EXERCISE_FORM: Exercise_RoutineFormState = {
+    exercise_id: " ",
+    exercise_info: undefined,
+    routine_id: " ",
+    routine_info: undefined, 
+}
