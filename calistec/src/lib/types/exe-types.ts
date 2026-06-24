@@ -4,6 +4,15 @@ export type ExerciseFormData = Omit<Exercise, "id">;
 export type ExerciseFormState = Omit<Exercise, "id">;
 // export type EquiposFilterValues = Record<FilterKey, string>;
 
+// Equipo seleccionado
+export type SelectedExerciseItem = {
+    row: string;
+    id: string;
+    title: string;
+    focus:string;
+    level: string;
+};
+
 // Campos de la base de datos
 export type SupabaseExerciseRow = {
     id?: number | string;
