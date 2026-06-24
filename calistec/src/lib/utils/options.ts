@@ -1,9 +1,9 @@
 export const FOCUS_OPTIONS = [
 	"---",
-	"FRONT LEVER",
-	"MUSCLE UP",
-	"CORE",
-	"BÁSICO",
+	"Front lever",
+	"Muscle up",
+	"Core",
+	"Básico",
 ];
 
 
