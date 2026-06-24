@@ -2,6 +2,7 @@
 "use client";
 
 import { PortalShell } from "@/features/PortalShell";
+import Button2Modal from "@/features/view/components/buttons/routines/button2Add";
 import { useExeRoutine, useExeRoutineMutations } from "@/features/view/hooks/useRealtimeExeRoutine";
 import { useRoutine, useRoutineMutations } from "@/features/view/hooks/useRealtimeRoutine";
 import { SelectedExerciseItem } from "@/lib/types/exe-types";
@@ -27,13 +28,15 @@ export function RoutinePage(){
     ) {
         const createdRoutine = await create_routine(routine)
         await Promise.all(
-            selectedExercises.map((exercise) =>
+                    selectedExercises.map((exercise) =>
                 create_exercise_routine({
                     exercise_id: exercise.id,
-                    routine_id: create_routine.id 
-                })
-            )
-        )
+                    routine_id: createdRoutine.id,
+                    exercise_info: exercise as unknown as Record<string, unknown>,
+                    routine_info: createdRoutine as unknown as Record<string, unknown>,
+                }),
+            ),
+        );
 
         await refetch_routine();
         await refetch_exercise_routine();
@@ -59,7 +62,9 @@ export function RoutinePage(){
             selectedExercises.map((exercise) =>
                 create_exercise_routine({
                     exercise_id: exercise.id,
-                    routine_id: create_routine.id 
+                    routine_id: id,
+                    exercise_info: exercise as unknown as Record<string, unknown>,
+                    routine_info: updatedRoutine as unknown as Record<string, unknown>,
                 })
             )
         )
@@ -79,7 +84,7 @@ export function RoutinePage(){
 
     async function handleDeleteExerciseRoutine(ExeRoutineId: string){
         await remove_exercise_routine(ExeRoutineId);
-        await refetch_exercise_routine;
+        await refetch_exercise_routine();
     }
 
     return (
@@ -91,7 +96,7 @@ export function RoutinePage(){
                     activePath="/routines"
                 >
                     <div className="grid grid-cols-1 gap-20">
-                        <Button2Add onAddProduct={handleAddRoutine} />
+                        <Button2Modal onAddProduct={handleAddRoutine} />
                     </div>
 
                     <div className="mt-0">
