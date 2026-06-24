@@ -1,6 +1,6 @@
 "use client";
 
-import { PortalShell } from "@/app/components/app/PortalShell";
+import { PortalShell } from "@/features/PortalShell";
 
 export default function DashboardPage() {
 
