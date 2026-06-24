@@ -4,6 +4,7 @@ export const FOCUS_OPTIONS = [
 	"Muscle up",
 	"Core",
 	"Básico",
+	"Variantes"
 ];
 
 
