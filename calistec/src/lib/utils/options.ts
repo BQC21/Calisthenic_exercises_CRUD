@@ -9,9 +9,9 @@ export const FOCUS_OPTIONS = [
 
 export const LEVEL_OPTIONS = [
 	"---",
-	"Beginner",
-	"Intermediate",
-	"Advanced",
-	"Elite",
+	"Principiante",
+	"Intermedio",
+	"Avanzado",
+	"Élite",
 ];
 
