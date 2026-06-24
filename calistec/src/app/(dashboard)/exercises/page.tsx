@@ -2,32 +2,35 @@
 "use client";
 
 import { useState } from "react";
-import { ExeFilter, type ExeFilterValues } from "@/app/components/Table/Exercises/ExeFilter";
-import { ExeTable } from "@/app/components/Table/Exercises/ExeTable";
-import Button2Add from "@/app/components/buttons/exercises/button2Add";
-import { useExerciseMutations, useExercise } from "@/features/hooks/useRealtimeExe";
+import { ExeFilter, type ExeFilterValues } from "@/features/view/components/Table/Exercises/ExeFilter";
+import { ExeTable } from "@/features/view/components/Table/Exercises/ExeTable";
+import Button2Add from "@/features/view/components/buttons/exercises/button2Add";
+import { useExerciseMutations, useExercise } from "@/features/view/hooks/useRealtimeExe";
 import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
-import { PortalShell } from "@/app/components/app/PortalShell";
+import { PortalShell } from "@/features/PortalShell";
 
-export default function Page() {
+export default function ExePage() {
+
+    // Uso de base de datos
 
     const { exercises, refetch } = useExercise();
     const { create, update, remove } = useExerciseMutations();
+
+    // Setear filtrados
+
     const [filters, setFilters] = useState<ExeFilterValues>({
         focus: "",
-        movement: "",
         level: "",
-        type: "",
     });
 
     const filteredExercises = exercises.filter((exercise) => {
         const matchesFocus = !filters.focus || exercise.focus === filters.focus;
-        const matchesMovement = !filters.movement || exercise.movement === filters.movement;
         const matchesLevel = !filters.level || exercise.level === filters.level;
-        const matchesType = !filters.type || exercise.type === filters.type;
 
-        return matchesFocus && matchesMovement && matchesLevel && matchesType;
+        return matchesFocus && matchesLevel;
     });
+
+    // Eventos
 
     async function handleAddProduct(exercise: ExerciseFormData) {
         await create(exercise);
@@ -36,7 +39,7 @@ export default function Page() {
 
     async function handleUpdateProduct(updatedExercise: Exercise) {
         const { id, ...exerciseData } = updatedExercise;
-        await update(id, exerciseData);
+        await update(String(id), exerciseData);
         await refetch();
     }
 
@@ -54,16 +57,6 @@ export default function Page() {
                                 interfaz de alto contraste."
                     activePath="/exercises"
                 >
-                <section className="surface-card px-5 py-5 sm:px-6 sm:py-6 lg:px-8">
-                        <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-end">
-                            <div className="rounded-2xl border border-emerald-400/15 bg-black/30 px-4 py-3 text-sm text-emerald-100/80">
-                                <div className="text-xs uppercase tracking-[0.22em] text-emerald-300/70">Total registrados</div>
-                                <div className="mt-1 text-2xl font-black text-white">{exercises.length}</div>
-                            </div>
-                            <Button2Add onAddProduct={handleAddProduct} />
-                        </div>
-                </section>
-
                 <section className="panel">
                     <ExeFilter
                         values={filters}
@@ -74,6 +67,7 @@ export default function Page() {
                             }))
                         }
                     />
+                    <Button2Add onAddProduct={handleAddProduct} />
                 </section>
 
                 <ExeTable
