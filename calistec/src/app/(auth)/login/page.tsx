@@ -1,4 +1,4 @@
-import { LoginForm } from "@/app/components/auth/LoginForm";
+import { LoginForm } from "@/features/LoginForm";
 
 export default async function LoginPage() {
 
@@ -19,8 +19,8 @@ export default async function LoginPage() {
                             <path d="M14 26L20 20M44 44L50 38" stroke="currentColor" strokeWidth="4" strokeLinecap="round" />
                         </svg>
                     </div>
-                    <h1 className="mb-2 text-5xl font-extrabold tracking-tight text-[#08d171]">Calistweight</h1>
-                    <p className="text-[2rem] leading-none text-[#a9b3c3]">Entrena sin limites</p>
+                    <h1 className="mb-2 text-5xl font-extrabold tracking-tight text-[#08d171]">CalisTEC</h1>
+                    <p className="text-[2rem] leading-none text-[#a9b3c3]">Entrena honestamente</p>
                 </div>
 
                 <LoginForm />
