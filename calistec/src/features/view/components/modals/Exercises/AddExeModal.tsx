@@ -9,9 +9,9 @@ import {
     FOCUS_OPTIONS,
     LEVEL_OPTIONS
 } from "@/lib/utils/options";
-import { AddCloseIcon } from "../icons/AddCloseIcon";
-import { AddTextField } from "../Form_fields/AddTextField";
-import { AddSelectField } from "../Form_fields/AddSelectField";
+import { AddCloseIcon } from "../../icons/AddCloseIcon";
+import { AddTextField } from "../../Form_fields/AddTextField";
+import { AddSelectField } from "../../Form_fields/AddSelectField";
 
 // --- Tipo de variables ---
 type AddProductModalProps = {

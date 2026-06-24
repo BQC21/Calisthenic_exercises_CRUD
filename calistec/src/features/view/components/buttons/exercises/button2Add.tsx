@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { PlusIcon } from "@/features/view/components/icons/PlusIcon";
-import { AddExeModal } from "@/features/view/components/modals/AddExeModal";
+import { AddExeModal } from "@/features/view/components/modals/Exercises/AddExeModal";
 import type { ExerciseFormData } from "@/lib/types/exe-types";
 
 type Button2ModalProps = {
