@@ -57,7 +57,7 @@ export default function ExePage() {
                                 interfaz de alto contraste."
                     activePath="/exercises"
                 >
-                <section className="panel">
+                <div className="grid grid-cols-1 gap-20">
                     <ExeFilter
                         values={filters}
                         onFilterChange={(key: keyof ExeFilterValues, value: string) =>
@@ -68,14 +68,15 @@ export default function ExePage() {
                         }
                     />
                     <Button2Add onAddProduct={handleAddProduct} />
-                </section>
-
-                <ExeTable
-                    exercises={filteredExercises}
-                    totalExecises={exercises.length}
-                    onUpdateExercise={handleUpdateProduct}
-                    onDeleteExercise={handleDeleteProduct}
-                />
+                </div>
+                <div className="mt-0">
+                    <ExeTable
+                        exercises={filteredExercises}
+                        totalExecises={exercises.length}
+                        onUpdateExercise={handleUpdateProduct}
+                        onDeleteExercise={handleDeleteProduct}
+                    />
+                </div>
                 </PortalShell>
             </div>
         </main>
