@@ -6,7 +6,7 @@ import { useCallback, useEffect, useState } from "react";
 
 const supabase = createClient();
 
-export function useRoutine(): UseExercise_RoutineResult {
+export function useExeRoutine(): UseExercise_RoutineResult {
     const [exercises_routines, setExercises_routines] = useState<Exercise_Routine[]>([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
@@ -75,7 +75,7 @@ export function useRoutine(): UseExercise_RoutineResult {
     };
 }
 
-export function useRoutineMutations(): useExercise_RoutineMutationResult{
+export function useExeRoutineMutations(): useExercise_RoutineMutationResult{
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
 
