@@ -5,3 +5,11 @@ export function parseNullableDate(value: Date | string | null | undefined): Date
 	const date = value instanceof Date ? value : new Date(value);
 	return Number.isNaN(date.getTime()) ? null : date;
 }
+
+
+export function formatDate(value: unknown) {
+    if (!value) return "-";
+
+    const date = value instanceof Date ? value : new Date(value as string | number);
+    return Number.isNaN(date.getTime()) ? "-" : date.toLocaleDateString("es-PE");
+}
