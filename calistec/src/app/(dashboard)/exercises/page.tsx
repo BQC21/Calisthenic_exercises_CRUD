@@ -5,7 +5,7 @@ import { useState } from "react";
 import { ExeFilter, type ExeFilterValues } from "@/features/view/components/Table/Exercises/ExeFilter";
 import { ExeTable } from "@/features/view/components/Table/Exercises/ExeTable";
 import Button2Add from "@/features/view/components/buttons/exercises/button2Add";
-import { useExerciseMutations, useExercise } from "@/features/view/hooks/useRealtimeExe";
+import { useExerciseMutations, useExercise } from "@/features/view/hooks/services/useRealtimeExe";
 import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
 import { PortalShell } from "@/features/PortalShell";
 

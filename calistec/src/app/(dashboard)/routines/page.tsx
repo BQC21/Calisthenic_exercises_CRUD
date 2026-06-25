@@ -4,12 +4,12 @@
 import { PortalShell } from "@/features/PortalShell";
 import Button2Modal from "@/features/view/components/buttons/routines/button2Add";
 import { RoutineTable } from "@/features/view/components/Table/Routines/RoutineTable";
-import { useExeRoutine, useExeRoutineMutations } from "@/features/view/hooks/useRealtimeExeRoutine";
-import { useRoutine, useRoutineMutations } from "@/features/view/hooks/useRealtimeRoutine";
+import { useExeRoutine, useExeRoutineMutations } from "@/features/view/hooks/services/useRealtimeExeRoutine";
+import { useRoutine, useRoutineMutations } from "@/features/view/hooks/services/useRealtimeRoutine";
 import { Exercise, SelectedExerciseItem } from "@/lib/types/exe-types";
 import { Routine, RoutineFormData } from "@/lib/types/routine-types";
 
-export function RoutinePage(){
+export default function RoutinePage(){
     // Uso de base de datos
     const { routines, refetch: refetch_routine } = useRoutine();
     const { create: create_routine,
