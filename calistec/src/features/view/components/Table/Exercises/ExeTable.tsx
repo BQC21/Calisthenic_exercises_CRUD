@@ -11,7 +11,7 @@ function getLevelBadgeClass(level: string) {
         return "badge--level-amber";
     }
 
-    if (normalized.includes("advance") || normalized.includes("elite")) {
+    if (normalized.includes("avan") || normalized.includes("elite")) {
         return "badge--level-red";
     }
 
