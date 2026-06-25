@@ -3,9 +3,10 @@
 
 import { PortalShell } from "@/features/PortalShell";
 import Button2Modal from "@/features/view/components/buttons/routines/button2Add";
+import { RoutineTable } from "@/features/view/components/Table/Routines/RoutineTable";
 import { useExeRoutine, useExeRoutineMutations } from "@/features/view/hooks/useRealtimeExeRoutine";
 import { useRoutine, useRoutineMutations } from "@/features/view/hooks/useRealtimeRoutine";
-import { SelectedExerciseItem } from "@/lib/types/exe-types";
+import { Exercise, SelectedExerciseItem } from "@/lib/types/exe-types";
 import { Routine, RoutineFormData } from "@/lib/types/routine-types";
 
 export function RoutinePage(){
@@ -24,17 +25,17 @@ export function RoutinePage(){
     // Eventos
     async function handleAddRoutine(
         routine: RoutineFormData,
-        selectedExercises: SelectedExerciseItem[] = []
+        selectedExercises: SelectedExerciseItem[]
     ) {
         const createdRoutine = await create_routine(routine)
         await Promise.all(
-                    selectedExercises.map((exercise) =>
-                create_exercise_routine({
-                    exercise_id: exercise.id,
-                    routine_id: createdRoutine.id,
-                    exercise_info: exercise as unknown as Record<string, unknown>,
-                    routine_info: createdRoutine as unknown as Record<string, unknown>,
-                }),
+                selectedExercises.map((exercise) =>
+                    create_exercise_routine({
+                        exercise_id: exercise.id,
+                        routine_id: createdRoutine.id,
+                        exercise_info: exercise as unknown as Exercise,
+                        routine_info: createdRoutine as Routine,
+                    }),
             ),
         );
 
@@ -63,8 +64,8 @@ export function RoutinePage(){
                 create_exercise_routine({
                     exercise_id: exercise.id,
                     routine_id: id,
-                    exercise_info: exercise as unknown as Record<string, unknown>,
-                    routine_info: updatedRoutine as unknown as Record<string, unknown>,
+                    exercise_info: exercise as unknown as Exercise,
+                    routine_info: updatedRoutine as Routine,
                 })
             )
         )
@@ -102,11 +103,11 @@ export function RoutinePage(){
                     <div className="mt-0">
                         <RoutineTable
                             routines={routines}
-                            exercises_routines={exercises_routines}
+                            exercise_routines={exercises_routines}
                             totalRoutines={routines.length}
                             onUpdateRoutine={handleUpdateRoutine}
-                            onDeleteRoutines={handleDeleteRoutine}
-                            onDeleteRoutinesExercise={handleDeleteExerciseRoutine}
+                            onDeleteRoutine={handleDeleteRoutine}
+                            onDeleteExerciseRoutine={handleDeleteExerciseRoutine}
                         />
                     </div>
                 </PortalShell>

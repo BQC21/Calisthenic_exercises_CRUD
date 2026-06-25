@@ -32,7 +32,7 @@ export type UseExercise_RoutineResult = {
 export type useExercise_RoutineMutationResult = {
     loading: boolean;
     error: string | null;
-    create: (project_equipos: Exercise_RoutineFormData) => Promise<Exercise_Routine>;
-    update: (id: string, project_equipos: Exercise_RoutineFormData) => Promise<Exercise_Routine>;
+    create: (exercises_routines: Exercise_RoutineFormData) => Promise<Exercise_Routine>;
+    update: (id: string, exercises_routines: Exercise_RoutineFormData) => Promise<Exercise_Routine>;
     remove: (id: string) => Promise<void>;
 }
