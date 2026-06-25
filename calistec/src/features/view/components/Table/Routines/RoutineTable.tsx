@@ -3,7 +3,8 @@ import { Routine } from "@/lib/types/routine-types";
 import { Exercise_Routine } from "@/lib/types/routineExe-types";
 import { Routine_TABLE_HEADERS } from "@/lib/utils/headers";
 import { formatDate } from "@/lib/utils/helpers";
-import { title } from "process";
+import Button2Edit from "../../buttons/routines/button2Edit";
+import { Button2Delete } from "../../buttons/routines/button2Delete";
 
 type RoutineTableProps = {
     routines: Routine[];
@@ -17,7 +18,7 @@ type RoutineTableProps = {
     onDeleteExerciseRoutine: (exercise_RoutineId: string) => void;
 };
 
-export function ExeTable({ routines, exercise_routines, totalRoutines, 
+export function RoutineTable({ routines, exercise_routines, totalRoutines, 
     onUpdateRoutine, onDeleteRoutine, onDeleteExerciseRoutine }: RoutineTableProps) {
     return (
         <section className="space-y-4">
@@ -64,7 +65,7 @@ export function ExeTable({ routines, exercise_routines, totalRoutines,
                                                 />
                                                 <Button2Delete
                                                     routine={routine}
-                                                    exercise_routines={exercise_routines}
+                                                    exercise_routine={exercise_routines}
                                                     onDeleteRoutine={() => onDeleteRoutine(String(routine.id))}
                                                     onDeleteExerciseRoutine={() => onDeleteExerciseRoutine?.(exerciseRoutines[0]?.id?.toString() ?? "")}
                                                 />
