@@ -7,7 +7,6 @@ export const Exercise_TABLE_HEADERS = [
 ]
 
 export const Routine_TABLE_HEADERS = [
-    "Rutina",
     "Descripción",
     "Ejercicios seleccionados",
     "Hora de inicio",
