@@ -44,15 +44,15 @@ export function RoutineTable({ routines, exercise_routines, totalRoutines,
                                     const exercisesTitles = exerciseRoutines
                                         .map((item) => item.exercise_info?.title)
                                         .filter((title): title is string => Boolean(title));
-                                    console.log(exerciseRoutines)
+                                    console.log(exercisesTitles)
 
                                     return(
                                     <tr key={routine.id} className="table-row bg-transparent align-top text-sm text-emerald-50/90">
                                         <td className="px-4 py-5 font-semibold text-white">{routine.description}</td>
-                                        <td className="px-4 py-5 font-semibold text-white">
+                                        <td className="px-4 py-5 font-semibold text-white whitespace-pre-line">
                                             {exercisesTitles.length > 0 ? exercisesTitles.join("\n") : "-"}</td>
-                                        <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.time_init)}</td>
-                                        <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.time_finish)}</td>
+                                        {/* <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.time_init)}</td> */}
+                                        {/* <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.time_finish)}</td> */}
                                         <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.created_at)}</td>
                                         <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.updated_at)}</td>
                                         <td className="px-4 py-5">
