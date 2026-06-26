@@ -2,22 +2,23 @@ import { mapExercise_RoutineToSupabaseRow, mapSupabaseRowToExercise_Routine } fr
 import { createClient } from "@/lib/supabase/client";
 import { Exercise_Routine, Exercise_RoutineFormData } from "@/lib/types/routineExe-types";
 
-const EXERCISE_ROUTINE_TABLE = "ejercicio-rutina" 
+const EXERCISE_ROUTINE_TABLE = "rutinas_ejercicios" 
 
 export async function createJoinRoutineExercises(
     routine_exercise: Exercise_RoutineFormData
 ): Promise<Exercise_Routine> {
     const supabase = createClient();
-    const baseRow = mapExercise_RoutineToSupabaseRow(routine_exercise) as Record<string, unknown>;
-    const { data, error } = await supabase  
+    const baseRow = mapExercise_RoutineToSupabaseRow(routine_exercise);
+    const { ejercicio_id, rutina_id } = baseRow;
+    const { data, error } = await supabase
         .from(EXERCISE_ROUTINE_TABLE)
-        .insert(baseRow)
+        .insert({ ejercicio_id, rutina_id })
         .select()
         .single();
 
     if (error) {
         throw new Error(`Error al crear la relación 
-            proyecto - equipo: ${error.message}`);
+            ejercicio-rutina: ${error.message}`);
     }
 
     return mapSupabaseRowToExercise_Routine(data);
@@ -32,7 +33,7 @@ export async function getJoinRoutineExercises(): Promise<Exercise_Routine[]>{
     
     if (error) {
         throw new Error(`Error al obtener las relaciones 
-            proyecto - equipo: ${error.message}`);
+            ejercicio-rutina: ${error.message}`);
     }
     
     return data.map(mapSupabaseRowToExercise_Routine)
@@ -49,7 +50,7 @@ export async function getRoutineExercisesById(id: string): Promise<Exercise_Rout
 
     if (error) {
         throw new Error(`Error al obtener la relación 
-            proyecto - equipo: ${error.message}`);
+            ejercicio-rutina: ${error.message}`);
     }
 
     return mapSupabaseRowToExercise_Routine(data);
@@ -60,11 +61,12 @@ export async function updateJoinRoutineExercises(
     id: string, project_equipos: Exercise_RoutineFormData
 ): Promise<Exercise_Routine>{
     const supabase = createClient();
-    const baseRow = mapExercise_RoutineToSupabaseRow(project_equipos) as Record<string, unknown>;
+    const baseRow = mapExercise_RoutineToSupabaseRow(project_equipos);
+    const { ejercicio_id, rutina_id } = baseRow;
 
     const { data, error } = await supabase
         .from(EXERCISE_ROUTINE_TABLE)
-        .update(baseRow)
+        .update({ ejercicio_id, rutina_id })
         .eq("id", id)
         .select()
         .single();
