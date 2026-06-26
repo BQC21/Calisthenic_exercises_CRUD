@@ -8,10 +8,12 @@ export type SupabaseExercise_RoutineRow = {
     id?: number | string;
     ejercicio_id?: number | string;
     exercise_info?: SupabaseExerciseRow;
-    exercises?: SupabaseExerciseRow; 
+    exercises?: SupabaseExerciseRow;
+    ejercicios?: SupabaseExerciseRow;
     rutina_id?: number | string;
     routine_info?: SupabaseRoutineRow;
-    routines?: SupabaseRoutineRow; 
+    routines?: SupabaseRoutineRow;
+    rutinas?: SupabaseRoutineRow;
 }
 
 export type Exercise_Routine = {

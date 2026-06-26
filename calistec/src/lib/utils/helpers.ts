@@ -11,8 +11,8 @@ export function formatDate(value: unknown) {
     if (!value) return "-";
 
     const date = value instanceof Date ? value : new Date(value as string | number);
-    // return Number.isNaN(date.getTime()) ? "-" : date.toLocaleDateString("es-PE");
-    return Number.isNaN(date.getTime()) ? "-" : date.toISOString().slice(0, 16);
+    return Number.isNaN(date.getTime()) ? "-" : date.toLocaleDateString("es-PE");
+    // return Number.isNaN(date.getTime()) ? "-" : date.toISOString().slice(0, 16);
 }
 
 export function formatDateTimeDisplay(value: unknown): string {
