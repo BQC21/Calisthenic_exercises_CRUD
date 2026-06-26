@@ -7,10 +7,10 @@ export type ExerciseFormState = Omit<Exercise, "id">;
 // Equipo seleccionado
 export type SelectedExerciseItem = {
     row: string;
-    id: string;
-    title: string;
-    focus:string;
-    level: string;
+    id: string | number | undefined;
+    title: string | undefined;
+    focus:string | undefined;
+    level: string | undefined;
 };
 
 // Campos de la base de datos
