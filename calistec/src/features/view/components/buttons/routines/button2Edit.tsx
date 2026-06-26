@@ -3,6 +3,7 @@ import { useState } from "react";
 import { EditIcon } from "../../icons/EditIcon";
 import { SelectedExerciseItem } from "@/lib/types/exe-types";
 import { Exercise_Routine } from "@/lib/types/routineExe-types";
+import UpdateRoutineModal from "../../modals/routines/EditRoutineModal";
 
 type Button2EditProps = {
     routine: Routine;
@@ -28,7 +29,7 @@ export default function Button2Edit({ routine, exercise_routines, onUpdateRoutin
         </button>
 
         {open && (
-            <EditRoutineModal
+            <UpdateRoutineModal
                 existingRoutine = {routine}
                 existingRoutineExercise = {exercise_routines}
                 onUpdateRoutine={async function (formData: RoutineFormData, selectedExercises){
