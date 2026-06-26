@@ -28,11 +28,16 @@ export default function RoutinePage(){
         selectedExercises: SelectedExerciseItem[]
     ) {
         const createdRoutine = await create_routine(routine)
+        console.log("ID de rutina creada:", createdRoutine.id, typeof createdRoutine.id);
+
+        if (!createdRoutine.id || createdRoutine.id === "") {
+            throw new Error("No se generó ID para la rutina");
+        }
         await Promise.all(
                 selectedExercises.map((exercise) =>
                     create_exercise_routine({
-                        exercise_id: exercise.id,
-                        routine_id: createdRoutine.id,
+                        ejercicio_id: exercise.id,
+                        rutina_id: createdRoutine.id,
                         exercise_info: exercise as unknown as Exercise,
                         routine_info: createdRoutine as Routine,
                     }),
@@ -52,18 +57,16 @@ export default function RoutinePage(){
         await update_routine(String(id), projectData);
 
         // obtiene relaciones
-        const existingEquipos = exercises_routines.filter((item) => item.routine_id === id); 
-        const existingMateriales = exercises_routines.filter((item) => item.routine_id === id);
+        const existingExercises = exercises_routines.filter((item) => item.ejercicio_id === id);
         
         // remueve relaciones
-        await Promise.all(existingEquipos.map((item) => remove_exercise_routine(String(item.id))));
-        await Promise.all(existingMateriales.map((item) => remove_exercise_routine(String(item.id))));
+        await Promise.all(existingExercises.map((item) => remove_exercise_routine(String(item.id))));
 
         await Promise.all(
             selectedExercises.map((exercise) =>
                 create_exercise_routine({
-                    exercise_id: exercise.id,
-                    routine_id: id,
+                    ejercicio_id: exercise.id,
+                    rutina_id: id,
                     exercise_info: exercise as unknown as Exercise,
                     routine_info: updatedRoutine as Routine,
                 })
@@ -75,8 +78,8 @@ export default function RoutinePage(){
     }
 
     async function handleDeleteRoutine(routineId: string){
-        const existingEquipos = exercises_routines.filter((item) => item.routine_id === routineId);
-        await Promise.all(existingEquipos.map((item) => remove_exercise_routine(String(item.id))));
+        const existingExercises = exercises_routines.filter((item) => item.ejercicio_id === routineId);
+        await Promise.all(existingExercises.map((item) => remove_exercise_routine(String(item.id))));
         await remove_routine(routineId);
         
         await refetch_routine();

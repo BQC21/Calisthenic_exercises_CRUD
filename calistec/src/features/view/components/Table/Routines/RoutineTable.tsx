@@ -30,8 +30,7 @@ export function RoutineTable({ routines, exercise_routines, totalRoutines,
                                 {Routine_TABLE_HEADERS.map((header) => (
                                     <th
                                         key={header}
-                                        className="border-b border-emerald-400/10 px-4 py-4 text-xs font-semibold 
-                                        uppercase tracking-[0.22em] text-emerald-200/70"
+                                        className="border-b border-emerald-400/10 px-4 py-4 text-xs font-semibold uppercase tracking-[0.22em] text-emerald-200/70"
                                     >
                                         {header}
                                     </th>
@@ -41,14 +40,14 @@ export function RoutineTable({ routines, exercise_routines, totalRoutines,
                         <tbody>
                             {routines.length > 0 ? (
                                 routines.map((routine) => {
-                                    const exerciseRoutines = exercise_routines.filter((item) => item.routine_id === routine.id);
+                                    const exerciseRoutines = exercise_routines.filter((item) => item.rutina_id === routine.id);
                                     const exercisesTitles = exerciseRoutines
-                                        .map((item) => item.routine_info?.title)
+                                        .map((item) => item.exercise_info?.title)
                                         .filter((title): title is string => Boolean(title));
-                                
+                                    console.log(exerciseRoutines)
+
                                     return(
                                     <tr key={routine.id} className="table-row bg-transparent align-top text-sm text-emerald-50/90">
-                                        <td className="px-4 py-5 font-semibold text-white">{routine.title}</td>
                                         <td className="px-4 py-5 font-semibold text-white">{routine.description}</td>
                                         <td className="px-4 py-5 font-semibold text-white">
                                             {exercisesTitles.length > 0 ? exercisesTitles.join("\n") : "-"}</td>
