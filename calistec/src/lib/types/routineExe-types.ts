@@ -6,19 +6,19 @@ export type Exercise_RoutineFormData = Omit<Exercise_Routine, "id">;
 
 export type SupabaseExercise_RoutineRow = {
     id?: number | string;
-    exercise_id?: number | string;
+    ejercicio_id?: number | string;
     exercise_info?: SupabaseExerciseRow;
     exercises?: SupabaseExerciseRow; 
-    routine_id?: number | string;
+    rutina_id?: number | string;
     routine_info?: SupabaseRoutineRow;
     routines?: SupabaseRoutineRow; 
 }
 
 export type Exercise_Routine = {
     id: number | string | undefined;
-    exercise_id: number | string | undefined;
+    ejercicio_id: number | string | undefined;
     exercise_info: Exercise | undefined;
-    routine_id: number | string | undefined;
+    rutina_id: number | string | undefined;
     routine_info: Routine | undefined;
 }
 

@@ -9,9 +9,9 @@ export function createExercise_RoutineFormStateFromExercise_Routine(
     exercise_routine: Exercise_Routine
 ): Exercise_RoutineFormState{
     return {
-        exercise_id: exercise_routine.exercise_id,
+        ejercicio_id: exercise_routine.ejercicio_id,
         exercise_info: exercise_routine.exercise_info!,
-        routine_id: exercise_routine.routine_id,
+        rutina_id: exercise_routine.rutina_id,
         routine_info: exercise_routine.routine_info!,
     }
 }
@@ -21,13 +21,13 @@ export function mapSupabaseRowToExercise_Routine(
 ): Exercise_Routine{
     return {
         id: row.id?.toString() || "",
-        exercise_id: row.exercise_id?.toString() || "",  
+        ejercicio_id: row.ejercicio_id?.toString() || "",  
         exercise_info: row.exercise_info
                     ? mapSupabaseRowToExe(row.exercise_info as SupabaseExerciseRow)
                         : row.exercises
                         ? mapSupabaseRowToExe(row.exercises as SupabaseExerciseRow)
                             : undefined,
-        routine_id: row.routine_id?.toString() || "",  
+        rutina_id: row.rutina_id?.toString() || "",  
         routine_info: row.routine_info
                     ? mapSupabaseRowToRoutine(row.routine_info as SupabaseRoutineRow)
                     : row.routines
@@ -40,7 +40,8 @@ export function mapExercise_RoutineToSupabaseRow(
     exercise_routine: Exercise_RoutineFormData
 ): SupabaseExercise_RoutineRow{
     return {
-        exercise_id: exercise_routine.exercise_id,  
-        routine_id: exercise_routine.routine_id,  
+        ejercicio_id: exercise_routine.ejercicio_id,
+        rutina_id: exercise_routine.rutina_id,
     }
 }
+

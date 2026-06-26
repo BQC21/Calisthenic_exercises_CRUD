@@ -4,7 +4,6 @@ export type RoutineFormState = Omit<Routine, "id">;
 
 export type SupabaseRoutineRow = {
     id?: number | string;
-    title?: string;
     description?: string;
     time_init?: Date | string | null;
     time_finish?: Date | string | null;
@@ -14,7 +13,6 @@ export type SupabaseRoutineRow = {
 
 export type Routine = {
     id: number | string;
-    title: string;
     description: string;
     time_init: Date | string | null;
     time_finish: Date | string | null;

@@ -6,7 +6,6 @@ import { parseNullableDate } from "../utils/helpers";
 // enlace con los atributos de Supabase
 export function createRoutineFormStateFromRoutine(routine: Routine): RoutineFormState {
     return {
-        title: routine.title,
         description: routine.description,
         time_init: routine.time_init,
         time_finish: routine.time_finish,
@@ -23,7 +22,6 @@ export function mapSupabaseRowToRoutine(
     ): Routine {
         return {
             id: row.id?.toString() || "",
-            title: row.title || "",
             description: row.description || "",
             time_init: parseNullableDate(row.time_init),
             time_finish: parseNullableDate(row.time_finish),
@@ -39,7 +37,6 @@ export function mapRoutineToSupabaseRow(
         routine: RoutineFormData
     ): SupabaseRoutineRow {
         return {
-        title: routine.title,
         description: routine.description,
         time_init: routine.time_init,
         time_finish: routine.time_finish,

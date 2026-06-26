@@ -12,7 +12,6 @@ export const INITIAL_EXERCISE_FORM: ExerciseFormState = {
 };
 
 export const INITIAL_ROUTINE_FORM: RoutineFormState = {
-    title: " ",
     created_at: new Date(),
     updated_at: new Date(),
     description: " ",
@@ -21,8 +20,8 @@ export const INITIAL_ROUTINE_FORM: RoutineFormState = {
 }
 
 export const INITUAL_ROUTINE_EXERCISE_FORM: Exercise_RoutineFormState = {
-    exercise_id: " ",
+    ejercicio_id: " ",
     exercise_info: undefined,
-    routine_id: " ",
+    rutina_id: " ",
     routine_info: undefined, 
 }
