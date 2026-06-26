@@ -31,7 +31,7 @@ export default function Button2Edit({ routine, exercise_routines, onUpdateRoutin
         {open && (
             <UpdateRoutineModal
                 existingRoutine = {routine}
-                existingRoutineExercise = {exercise_routines}
+                existingRoutineExercise = {exercise_routines.filter((er) => er.rutina_id === routine.id)}
                 onUpdateRoutine={async function (formData: RoutineFormData, selectedExercises){
                         const updatedRoutine: Routine = {...routine, ...formData} as Routine;
                         await onUpdateRoutine(updatedRoutine, selectedExercises);
