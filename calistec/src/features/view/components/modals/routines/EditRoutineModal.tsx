@@ -164,8 +164,8 @@ export default function UpdateRoutineModal({
                                         </thead>
                                         <tbody>
                                             {selectedExerciseTable.length > 0 ? (
-                                                selectedExerciseTable.map((item) => (
-                                                    <tr key={`${item.row}-${item.id}`} className="bg-white">
+                                                selectedExerciseTable.map((item, index) => (
+                                                    <tr key={`${item.row}-${item.id}-${index}`} className="bg-white">
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             {item.title}
                                                         </td>
@@ -213,7 +213,7 @@ export default function UpdateRoutineModal({
                                 type="submit"
                                 className="action-button px-6 py-3 text-sm"
                             >
-                                Añadir Rutina
+                                Actualizar Rutina
                             </button>
                         </div>
                     </div>
