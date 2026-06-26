@@ -28,7 +28,6 @@ export default function RoutinePage(){
         selectedExercises: SelectedExerciseItem[]
     ) {
         const createdRoutine = await create_routine(routine)
-        console.log("ID de rutina creada:", createdRoutine.id, typeof createdRoutine.id);
 
         if (!createdRoutine.id || createdRoutine.id === "") {
             throw new Error("No se generó ID para la rutina");
@@ -56,9 +55,9 @@ export default function RoutinePage(){
         const { id, ...projectData } = updatedRoutine;
         await update_routine(String(id), projectData);
 
-        // obtiene relaciones
-        const existingExercises = exercises_routines.filter((item) => item.ejercicio_id === id);
-        
+        // obtiene relaciones de la rutina actual
+        const existingExercises = exercises_routines.filter((item) => item.rutina_id === id);
+
         // remueve relaciones
         await Promise.all(existingExercises.map((item) => remove_exercise_routine(String(item.id))));
 

@@ -67,18 +67,20 @@ export function useSelectionHandlers(
                 (item) => item.id === selectedExercise.ejercicioId
             );
 
-            if (!isAlreadyAdded) {
-                setSelectedExerciseTable((prev: SelectedExerciseItem[]) => [
-                    ...prev,
-                    {
-                        row: label,
-                        id: selectedExercise.ejercicioId,
-                        title: selectedExercise.title,
-                        focus: selectedExercise.focus,
-                        level: selectedExercise.level,
-                    },
-                ]);
+            if (isAlreadyAdded) {
+                return;
             }
+
+            setSelectedExerciseTable((prev: SelectedExerciseItem[]) => [
+                ...prev,
+                {
+                    row: label,
+                    id: selectedExercise.ejercicioId,
+                    title: selectedExercise.title,
+                    focus: selectedExercise.focus,
+                    level: selectedExercise.level,
+                },
+            ]);
 
             // Limpiar el selector temporal
             setSelectedExerciseByRow((prev) => {
