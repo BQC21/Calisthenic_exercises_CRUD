@@ -64,9 +64,7 @@ export function RoutineTable({ routines, exercise_routines, totalRoutines,
                                                 />
                                                 <Button2Delete
                                                     routine={routine}
-                                                    exercise_routine={exercise_routines}
                                                     onDeleteRoutine={() => onDeleteRoutine(String(routine.id))}
-                                                    onDeleteExerciseRoutine={() => onDeleteExerciseRoutine?.(exerciseRoutines[0]?.id?.toString() ?? "")}
                                                 />
                                             </div>
                                         </td>
