@@ -14,9 +14,7 @@ export type PortalNavItem = {
 };
 
 export const navigation: PortalNavItem[] = [
-    { label: "Vista principal", href: "/dashboard" },
-    // { label: "Productos", href: "/products" }, // comentar en caso no se quiera mostrar el módulo de productos
-    { label: "Equipos Principales", href: "/equipos" },
-    { label: "Materiales Eléctricos", href: "/materiales" },
-    { label: "Dimensionamiento", href: "/sizing" },
+    { label: "Vista principal", href: "/main" },
+    { label: "Ejercicios", href: "/exercises" },
+    { label: "Rutinas", href: "/routines" },
 ];
