@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
+import type { Exercise, ExerciseFormData } from "@/lib/types/services/exe-types";
 
 import {
     FOCUS_OPTIONS, 
@@ -12,15 +12,9 @@ import { AddCloseIcon } from "../../icons/AddCloseIcon";
 import { AddTextField } from "../../Form_fields/AddTextField";
 import { AddSelectField } from "../../Form_fields/AddSelectField";
 import { createExercisesFormStateFromExercises } from "@/lib/mapping/mapping_exe";
+import { EditExeModalProps } from "@/lib/types/components/modals";
 
-// --- Tipo de variables ---
-type AddProductModalProps = {
-    exercise: Exercise;
-    onUpdateExercise: (exercise: Exercise) => void;
-    onClose: () => void;
-};
-
-export function EditExeModal({exercise, onUpdateExercise, onClose }: AddProductModalProps) {
+export function EditExeModal({exercise, onUpdateExercise, onClose }: EditExeModalProps) {
     const [form, setForm] = useState<ExerciseFormData>(() => createExercisesFormStateFromExercises(exercise));
 
     useEffect(() => {

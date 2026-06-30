@@ -1,4 +1,4 @@
-import { Exercise, SelectedExerciseItem } from "@/lib/types/exe-types";
+import { Exercise, SelectedExerciseItem } from "@/lib/types/services/exe-types";
 import { useCallback } from "react";
 
 //OUTPUTS

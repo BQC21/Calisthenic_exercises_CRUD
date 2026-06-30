@@ -1,12 +1,5 @@
+import { AddDateTimeFieldProps } from "@/lib/types/components/form_fields";
 import { AddFieldLabel } from "./AddFieldLabel";
-
-type AddDateTimeFieldProps = {
-    label: string;
-    required?: boolean;
-    value: string;
-    onChange: (value: string) => void;
-    disabled?: boolean;
-};
 
 export function AddDateTimeField({
     label,

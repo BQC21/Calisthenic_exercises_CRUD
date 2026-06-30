@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/client";
-import { Routine, RoutineFormData, UseRoutineMutationsResult, UseRoutineResult } from "@/lib/types/routine-types";
+import { Routine, RoutineFormData, UseRoutineMutationsResult, UseRoutineResult } from "@/lib/types/services/routine-types";
 import { useCallback, useEffect, useState } from "react";
 import { createRoutine, deleteRoutine, getRoutine, updateRoutine } from "../../../controllers/services/RoutineQueries";
 

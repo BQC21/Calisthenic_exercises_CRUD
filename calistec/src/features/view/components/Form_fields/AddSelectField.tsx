@@ -1,13 +1,5 @@
 import { AddFieldLabel } from "@/features/view/components/Form_fields/AddFieldLabel";
-
-type AddSelectFieldProps = {
-  label: string;
-  required?: boolean;
-  options: string[];
-  value: string;
-  disabled?: boolean;
-  onChange: (value: string) => void;
-};
+import { AddSelectFieldProps } from "@/lib/types/components/form_fields";
 
 export function AddSelectField({
   label,

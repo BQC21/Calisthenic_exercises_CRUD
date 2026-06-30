@@ -11,17 +11,9 @@ import { useExercise } from "@/features/view/hooks/services/useRealtimeExe";
 import { handlerSelector } from "@/features/view/hooks/modals/useHandler";
 import { useSelectionHandlers } from "@/features/view/hooks/modals/useSelectionHandlers";
 import { AddDateTimeField } from "../../Form_fields/AddDateTimeField";
+import { AddRoutineModalProps } from "@/lib/types/components/modals";
 
-
-type AddModalProps = {
-    onAddRoutine: (
-        routine: RoutineFormData,
-        selectedExercise: SelectedExerciseItem[]
-    ) => Promise<void> | void;
-    onClose: () => void;
-}
-
-export default function AddRoutineModal({onAddRoutine, onClose}: AddModalProps){
+export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModalProps){
 
     // Estados
     const { exercises } = useExercise();

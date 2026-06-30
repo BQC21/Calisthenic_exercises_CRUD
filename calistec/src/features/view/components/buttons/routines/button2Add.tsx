@@ -2,16 +2,8 @@
 
 import { useState } from "react";
 import { PlusIcon } from "@/features/view/components/icons/PlusIcon";
-import { RoutineFormData } from "@/lib/types/routine-types";
 import AddRoutineModal from "../../modals/routines/AddRoutineModal";
-import { SelectedExerciseItem } from "@/lib/types/exe-types";
-
-type Button2ModalProps = {
-    onAddProduct: (
-        product: RoutineFormData,
-        selectedExercises: SelectedExerciseItem[]
-    ) => Promise<void> | void;
-};
+import { Button2ModalProps } from "@/lib/types/components/buttons";
 
 export default function Button2Modal({ onAddProduct }: Button2ModalProps) {
     const [open, setOpen] = useState(false);

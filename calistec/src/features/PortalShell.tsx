@@ -5,25 +5,7 @@ import { useRouter } from "next/navigation";
 import { useEffect, useState, type ReactNode } from "react";
 
 import { createClient } from "@/lib/supabase/client";
-
-type PortalNavItem = {
-    label: string;
-    href: string;
-};
-
-// añadir modulos por rutas
-const navigation: PortalNavItem[] = [
-    { label: "Principal", href: "/main" },
-    { label: "Ejercicios", href: "/exercises" },
-    { label: "Rutinas", href: "/routines" },
-];
-
-type PortalShellProps = {
-    title: string;
-    subtitle: string;
-    activePath: string;
-    children: ReactNode;
-};
+import { navigation, PortalShellProps } from "@/lib/types/components/portalShell";
 
 export function PortalShell({ title, subtitle, activePath, children }: PortalShellProps) {
     const router = useRouter();

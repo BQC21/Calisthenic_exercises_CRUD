@@ -1,10 +1,4 @@
-import { Routine } from "@/lib/types/routine-types";
-
-type DeleteRoutineModalProps = {
-    routine: Routine;
-    onDeleteRoutine: (routineId: string) => void;
-    onClose: () => void;
-};
+import { DeleteRoutineModalProps } from "@/lib/types/components/modals";
 
 export default function DeleteRoutineModal({
     routine,

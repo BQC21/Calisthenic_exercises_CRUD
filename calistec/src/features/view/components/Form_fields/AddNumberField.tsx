@@ -1,15 +1,5 @@
+import { AddNumberFieldProps } from "@/lib/types/components/form_fields";
 import { AddFieldLabel } from "./AddFieldLabel";
-
-type AddNumberFieldProps = {
-    label: string;
-    required?: boolean;
-    value: number | "";
-    onChange: (value: number) => void;
-    step?: number | "";
-    min?: number | "";
-    max?: number | "";
-    disabled?: boolean;
-};
 
 export function AddNumberField({
         label,

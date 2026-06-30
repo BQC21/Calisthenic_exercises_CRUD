@@ -1,12 +1,5 @@
 import { AddFieldLabel } from "@/features/view/components/Form_fields/AddFieldLabel";
-
-type AddTextFieldProps = {
-  label: string;
-  required?: boolean;
-  placeholder?: string;
-  value: string;
-  onChange: (value: string) => void;
-};
+import { AddTextFieldProps } from "@/lib/types/components/form_fields";
 
 export function AddTextField({
   label,

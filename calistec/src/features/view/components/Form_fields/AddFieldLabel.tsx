@@ -1,7 +1,4 @@
-type AddFieldLabelProps = {
-  label: string;
-  required?: boolean;
-};
+import { AddFieldLabelProps } from "@/lib/types/components/form_fields";
 
 export function AddFieldLabel({ label, required }: AddFieldLabelProps) {
   return (

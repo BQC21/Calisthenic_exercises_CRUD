@@ -1,17 +1,8 @@
 "use client";
 
-
-
-import type { Exercise } from "@/lib/types/exe-types";
 import { AddCloseIcon } from "../../icons/AddCloseIcon";
 import { AddReadonlyField } from "../../Form_fields/AddReadonlyField";
-
-// --- Tipo de variables ---
-type DeleteExeModalProps = {
-    exercise: Exercise;
-    onDeleteExercise: (exerciseId: string) => void
-    onClose: () => void;
-};
+import { DeleteExeModalProps } from "@/lib/types/components/modals";
 
 export function DeleteExeModal({ exercise, onDeleteExercise, onClose }: DeleteExeModalProps) {
 

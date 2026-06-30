@@ -12,14 +12,9 @@ import {
 import { AddCloseIcon } from "../../icons/AddCloseIcon";
 import { AddTextField } from "../../Form_fields/AddTextField";
 import { AddSelectField } from "../../Form_fields/AddSelectField";
+import { AddExeModalProps } from "@/lib/types/components/modals";
 
-// --- Tipo de variables ---
-type AddProductModalProps = {
-    onAddProduct: (product: ExerciseFormData) => void;
-    onClose: () => void;
-};
-
-export function AddExeModal({onAddProduct, onClose }: AddProductModalProps) {
+export function AddExeModal({onAddProduct, onClose }: AddExeModalProps) {
     const [form, setForm] = useState<ExerciseFormData>(INITIAL_EXERCISE_FORM);
 
     // Actualizar campos del formulario

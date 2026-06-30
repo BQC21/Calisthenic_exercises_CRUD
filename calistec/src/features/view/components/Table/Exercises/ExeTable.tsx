@@ -1,7 +1,8 @@
 import Button2Edit from "@/features/view/components/buttons/exercises/button2Edit";
 import { Button2Delete } from "@/features/view/components/buttons/exercises/button2Delete";
-import type { Exercise } from "@/lib/types/exe-types";
+import type { Exercise } from "@/lib/types/services/exe-types";
 import { Exercise_TABLE_HEADERS } from "@/lib/utils/headers";
+import { ExeTableProps } from "@/lib/types/components/tables";
 
 // colorear nivelación
 function getLevelBadgeClass(level: string) {
@@ -17,13 +18,6 @@ function getLevelBadgeClass(level: string) {
 
     return "badge--level-green";
 }
-
-type ExeTableProps = {
-    exercises: Exercise[];
-    totalExecises: number;
-    onUpdateExercise: (exercise: Exercise) => void;
-    onDeleteExercise: (exerciseId: string) => void;
-};
 
 export function ExeTable({ exercises, totalExecises, onUpdateExercise, onDeleteExercise }: ExeTableProps) {
     return (

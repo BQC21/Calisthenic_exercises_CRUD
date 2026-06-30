@@ -1,12 +1,8 @@
-import { Routine } from "@/lib/types/routine-types";
+import { Routine } from "@/lib/types/services/routine-types";
 import { useState } from "react";
 import { DeleteIcon } from "../../icons/DeleteIcon";
 import DeleteRoutineModal from "../../modals/routines/DeleteRoutineModal";
-
-type DeleteRoutineModalProps = {
-    routine: Routine;
-    onDeleteRoutine: (routineId: string) => void;
-};
+import { DeleteRoutineModalProps } from "@/lib/types/components/buttons";
 
 export function Button2Delete({ routine,
     onDeleteRoutine }: DeleteRoutineModalProps) {

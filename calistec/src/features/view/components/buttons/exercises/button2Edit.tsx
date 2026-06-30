@@ -3,14 +3,10 @@
 import { useState } from "react";
 import { EditIcon } from "@/features/view/components/icons/EditIcon";
 import { EditExeModal } from "@/features/view/components/modals/Exercises/EditExeModal";
-import type { Exercise } from "@/lib/types/exe-types";
+import type { Exercise } from "@/lib/types/services/exe-types";
+import { Button2EditProps_exe } from "@/lib/types/components/buttons";
 
-type Button2EditProps = {
-    exercise: Exercise;
-    onUpdateExercise: (exercise: Exercise) => void;
-};
-
-export default function Button2Edit({ exercise, onUpdateExercise }: Button2EditProps) {
+export default function Button2Edit({ exercise, onUpdateExercise }: Button2EditProps_exe) {
     const [open, setOpen] = useState(false);
 
     return (

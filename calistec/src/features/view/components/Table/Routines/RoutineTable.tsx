@@ -1,22 +1,11 @@
-import { SelectedExerciseItem } from "@/lib/types/exe-types";
-import { Routine } from "@/lib/types/routine-types";
-import { Exercise_Routine } from "@/lib/types/routineExe-types";
+import { SelectedExerciseItem } from "@/lib/types/services/exe-types";
+import { Routine } from "@/lib/types/services/routine-types";
+import { Exercise_Routine } from "@/lib/types/services/routineExe-types";
 import { Routine_TABLE_HEADERS } from "@/lib/utils/headers";
 import { formatDate } from "@/lib/utils/helpers";
 import Button2Edit from "../../buttons/routines/button2Edit";
 import { Button2Delete } from "../../buttons/routines/button2Delete";
-
-type RoutineTableProps = {
-    routines: Routine[];
-    exercise_routines: Exercise_Routine[];
-    totalRoutines: number;
-    onUpdateRoutine: (
-        routine: Routine,
-        selectedExercises: SelectedExerciseItem[]
-    ) => Promise<void> | void;
-    onDeleteRoutine: (routineId: string) => void;
-    onDeleteExerciseRoutine: (exercise_RoutineId: string) => void;
-};
+import { RoutineTableProps } from "@/lib/types/components/tables";
 
 export function RoutineTable({ routines, exercise_routines, totalRoutines, 
     onUpdateRoutine, onDeleteRoutine, onDeleteExerciseRoutine }: RoutineTableProps) {

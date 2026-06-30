@@ -3,14 +3,9 @@
 import { DeleteExeModal } from "@/features/view/components/modals/Exercises/DeleteExeModal";
 import { DeleteIcon } from "@/features/view/components/icons/DeleteIcon";
 import { useState } from "react";
-import { Exercise } from "@/lib/types/exe-types";
+import { DeleteExeModalProps_exe } from "@/lib/types/components/buttons";
 
-type DeleteExeModalProps = {
-    exercise: Exercise;
-    onDeleteExercise: (exerciseId: string) => void;
-};
-
-export function Button2Delete({ exercise, onDeleteExercise }: DeleteExeModalProps) {
+export function Button2Delete({ exercise, onDeleteExercise }: DeleteExeModalProps_exe) {
     const [open, setOpen] = useState(false);
 
     return (

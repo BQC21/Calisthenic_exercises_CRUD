@@ -1,9 +1,5 @@
 import { AddFieldLabel } from "@/features/view/components/Form_fields/AddFieldLabel";
-
-type AddReadonlyFieldProps = {
-    label: string;
-    value: string;
-};
+import { AddReadonlyFieldProps } from "@/lib/types/components/form_fields";
 
 export function AddReadonlyField({ label, value }: AddReadonlyFieldProps) {
     return (

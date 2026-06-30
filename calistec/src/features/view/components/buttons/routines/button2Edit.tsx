@@ -1,18 +1,10 @@
-import { Routine, RoutineFormData } from "@/lib/types/routine-types";
+import { Routine, RoutineFormData } from "@/lib/types/services/routine-types";
 import { useState } from "react";
 import { EditIcon } from "../../icons/EditIcon";
-import { SelectedExerciseItem } from "@/lib/types/exe-types";
-import { Exercise_Routine } from "@/lib/types/routineExe-types";
+import { SelectedExerciseItem } from "@/lib/types/services/exe-types";
+import { Exercise_Routine } from "@/lib/types/services/routineExe-types";
 import UpdateRoutineModal from "../../modals/routines/EditRoutineModal";
-
-type Button2EditProps = {
-    routine: Routine;
-    exercise_routines: Exercise_Routine[];
-    onUpdateRoutine: (
-        routine: Routine,
-        selectedExercises: SelectedExerciseItem[]
-    ) => Promise<void> | void;
-};
+import { Button2EditProps } from "@/lib/types/components/buttons";
 
 export default function Button2Edit({ routine, exercise_routines, onUpdateRoutine }: Button2EditProps) {
     const [open, setOpen] = useState(false);

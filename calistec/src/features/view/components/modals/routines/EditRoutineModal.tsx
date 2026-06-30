@@ -2,28 +2,18 @@ import { handlerSelector } from "@/features/view/hooks/modals/useHandler";
 import { useSelectionHandlers } from "@/features/view/hooks/modals/useSelectionHandlers";
 import { useExercise } from "@/features/view/hooks/services/useRealtimeExe";
 import { createRoutineFormStateFromRoutine } from "@/lib/mapping/mapping_routine";
-import { SelectedExerciseItem } from "@/lib/types/exe-types";
-import { Routine, RoutineFormData, RoutineFormState } from "@/lib/types/routine-types";
-import { Exercise_Routine } from "@/lib/types/routineExe-types";
+import { SelectedExerciseItem } from "@/lib/types/services/exe-types";
+import { Routine, RoutineFormData, RoutineFormState } from "@/lib/types/services/routine-types";
 import { useState } from "react";
 import { AddCloseIcon } from "../../icons/AddCloseIcon";
 import { AddTextField } from "../../Form_fields/AddTextField";
 import { SelectionRow } from "../../Form_fields/AddSelectionRow";
-
-type EditModalProps = {
-    existingRoutine: Routine,
-    existingRoutineExercise: Exercise_Routine[],
-    onUpdateRoutine: (
-        routine: RoutineFormData,
-        selectedExercise: SelectedExerciseItem[]
-    ) => Promise<void> | void;
-    onClose: () => void;
-}
+import { EditRoutineModalProps } from "@/lib/types/components/modals";
 
 export default function UpdateRoutineModal({
     existingRoutine, existingRoutineExercise,
     onUpdateRoutine, onClose
-}: EditModalProps){
+}: EditRoutineModalProps){
 
     // Estados
     const { exercises } = useExercise();

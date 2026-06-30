@@ -3,13 +3,9 @@
 import { useState } from "react";
 import { PlusIcon } from "@/features/view/components/icons/PlusIcon";
 import { AddExeModal } from "@/features/view/components/modals/Exercises/AddExeModal";
-import type { ExerciseFormData } from "@/lib/types/exe-types";
+import { Button2ModalProps, Button2ModalProps_exe } from "@/lib/types/components/buttons";
 
-type Button2ModalProps = {
-    onAddProduct: (product: ExerciseFormData) => void;
-};
-
-export default function Button2Modal({ onAddProduct }: Button2ModalProps) {
+export default function Button2Modal({ onAddProduct }: Button2ModalProps_exe) {
     const [open, setOpen] = useState(false);
 
     return (

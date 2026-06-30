@@ -1,6 +1,8 @@
-import { createJoinRoutineExercises, deleteJoinRoutineExercises, getJoinRoutineExercises, updateJoinRoutineExercises } from "@/features/controllers/services/ExeRoutineQueries";
+import { createJoinRoutineExercises, deleteJoinRoutineExercises, 
+    getJoinRoutineExercises, updateJoinRoutineExercises } from "@/features/controllers/services/ExeRoutineQueries";
 import { createClient } from "@/lib/supabase/client";
-import { Exercise_Routine, Exercise_RoutineFormData, useExercise_RoutineMutationResult, UseExercise_RoutineResult } from "@/lib/types/routineExe-types";
+import { Exercise_Routine, Exercise_RoutineFormData, 
+    useExercise_RoutineMutationResult, UseExercise_RoutineResult } from "@/lib/types/services/routineExe-types";
 import { useCallback, useEffect, useState } from "react";
 
 
