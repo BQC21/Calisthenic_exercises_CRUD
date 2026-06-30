@@ -56,14 +56,10 @@ export default function RoutinePage(){
         await update_routine(String(id), projectData);
 
         // obtiene relaciones de la rutina actual
-        const existingExercises = exercises_routines.filter((item: {
-                    rutina_id: string | number; ejercicio_id: string; 
-        })  => item.rutina_id === id);
+        const existingExercises = exercises_routines.filter((item) => item.rutina_id === id);
 
         // remueve relaciones
-        await Promise.all(existingExercises.map((item: {
-            id: any; ejercicio_id: string; 
-})  => remove_exercise_routine(String(item.id))));
+        await Promise.all(existingExercises.map((item: {id: any;})  => remove_exercise_routine(String(item.id))));
 
         await Promise.all(
             selectedExercises.map((exercise) =>
@@ -81,8 +77,8 @@ export default function RoutinePage(){
     }
 
     async function handleDeleteRoutine(routineId: string){
-        const existingExercises = exercises_routines.filter((item: { ejercicio_id: string; }) => item.ejercicio_id === routineId);
-        await Promise.all(existingExercises.map((item: {id: any; ejercicio_id: string; }) => remove_exercise_routine(String(item.id))));
+        const existingExercises = exercises_routines.filter((item) => item.rutina_id === routineId);
+        await Promise.all(existingExercises.map((item: {id: any;}) => remove_exercise_routine(String(item.id))));
         await remove_routine(routineId);
         
         await refetch_routine();
