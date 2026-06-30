@@ -19,7 +19,7 @@ export const INITIAL_ROUTINE_FORM: RoutineFormState = {
     time_finish: new Date(),
 }
 
-export const INITUAL_ROUTINE_EXERCISE_FORM: Exercise_RoutineFormState = {
+export const INITIAL_ROUTINE_EXERCISE_FORM: Exercise_RoutineFormState = {
     ejercicio_id: " ",
     exercise_info: undefined,
     rutina_id: " ",
