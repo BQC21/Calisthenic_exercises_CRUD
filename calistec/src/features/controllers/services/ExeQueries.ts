@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/client";
-import type { Exercise, ExerciseFormData } from "@/lib/types/exe-types";
+import type { Exercise, ExerciseFormData } from "@/lib/types/services/exe-types";
 import { mapSupabaseRowToExe, mapExeToSupabaseRow } from "../../../lib/mapping/mapping_exe";
 
 const EXERCISES_TABLE = "ejercicios";

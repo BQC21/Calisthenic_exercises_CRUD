@@ -1,6 +1,6 @@
 import { mapExercise_RoutineToSupabaseRow, mapSupabaseRowToExercise_Routine } from "@/lib/mapping/mapping_ExeRoutine";
 import { createClient } from "@/lib/supabase/client";
-import { Exercise_Routine, Exercise_RoutineFormData } from "@/lib/types/routineExe-types";
+import { Exercise_Routine, Exercise_RoutineFormData } from "@/lib/types/services/routineExe-types";
 
 const EXERCISE_ROUTINE_TABLE = "rutinas_ejercicios" 
 

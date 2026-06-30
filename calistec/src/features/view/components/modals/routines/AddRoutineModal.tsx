@@ -1,5 +1,5 @@
-import { SelectedExerciseItem } from "@/lib/types/exe-types"
-import { RoutineFormData, RoutineFormState } from "@/lib/types/routine-types"
+import { SelectedExerciseItem } from "@/lib/types/services/exe-types"
+import { RoutineFormData, RoutineFormState } from "@/lib/types/services/routine-types"
 import { INITIAL_ROUTINE_FORM } from "@/lib/utils/initialValues";
 import { useState } from "react";
 import { AddCloseIcon } from "../../icons/AddCloseIcon";

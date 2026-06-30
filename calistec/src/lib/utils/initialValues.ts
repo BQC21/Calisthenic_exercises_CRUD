@@ -1,7 +1,7 @@
-import type { ExerciseFormState } from "@/lib/types/exe-types";
+import type { ExerciseFormState } from "@/lib/types/services/exe-types";
 import { FOCUS_OPTIONS, LEVEL_OPTIONS } from "./options";
-import { RoutineFormState } from "../types/routine-types";
-import { Exercise_RoutineFormState } from "../types/routineExe-types";
+import { RoutineFormState } from "../types/services/routine-types";
+import { Exercise_RoutineFormState } from "../types/services/routineExe-types";
 
 export const INITIAL_EXERCISE_FORM: ExerciseFormState = {
     title: " ",

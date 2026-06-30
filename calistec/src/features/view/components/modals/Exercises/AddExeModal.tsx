@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-import type { ExerciseFormData } from "@/lib/types/exe-types";
+import type { ExerciseFormData } from "@/lib/types/services/exe-types";
 import { INITIAL_EXERCISE_FORM } from "@/lib/utils/initialValues";
 
 import {

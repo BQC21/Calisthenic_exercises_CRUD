@@ -6,8 +6,8 @@ import Button2Modal from "@/features/view/components/buttons/routines/button2Add
 import { RoutineTable } from "@/features/view/components/Table/Routines/RoutineTable";
 import { useExeRoutine, useExeRoutineMutations } from "@/features/view/hooks/services/useRealtimeExeRoutine";
 import { useRoutine, useRoutineMutations } from "@/features/view/hooks/services/useRealtimeRoutine";
-import { Exercise, SelectedExerciseItem } from "@/lib/types/exe-types";
-import { Routine, RoutineFormData } from "@/lib/types/routine-types";
+import { Exercise, SelectedExerciseItem } from "@/lib/types/services/exe-types";
+import { Routine, RoutineFormData } from "@/lib/types/services/routine-types";
 
 export default function RoutinePage(){
     // Uso de base de datos
@@ -56,10 +56,14 @@ export default function RoutinePage(){
         await update_routine(String(id), projectData);
 
         // obtiene relaciones de la rutina actual
-        const existingExercises = exercises_routines.filter((item) => item.rutina_id === id);
+        const existingExercises = exercises_routines.filter((item: {
+                    rutina_id: string | number; ejercicio_id: string; 
+        })  => item.rutina_id === id);
 
         // remueve relaciones
-        await Promise.all(existingExercises.map((item) => remove_exercise_routine(String(item.id))));
+        await Promise.all(existingExercises.map((item: {
+            id: any; ejercicio_id: string; 
+})  => remove_exercise_routine(String(item.id))));
 
         await Promise.all(
             selectedExercises.map((exercise) =>
@@ -77,8 +81,8 @@ export default function RoutinePage(){
     }
 
     async function handleDeleteRoutine(routineId: string){
-        const existingExercises = exercises_routines.filter((item) => item.ejercicio_id === routineId);
-        await Promise.all(existingExercises.map((item) => remove_exercise_routine(String(item.id))));
+        const existingExercises = exercises_routines.filter((item: { ejercicio_id: string; }) => item.ejercicio_id === routineId);
+        await Promise.all(existingExercises.map((item: {id: any; ejercicio_id: string; }) => remove_exercise_routine(String(item.id))));
         await remove_routine(routineId);
         
         await refetch_routine();

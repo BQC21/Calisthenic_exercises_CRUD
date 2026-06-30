@@ -1,5 +1,5 @@
 import type { Exercise, ExerciseFormData, ExerciseFormState, 
-    SupabaseExerciseRow } from "@/lib/types/exe-types";
+    SupabaseExerciseRow } from "@/lib/types/services/exe-types";
     
 import { parseNullableDate } from "../utils/helpers";
 
