@@ -1,7 +1,7 @@
-import { SupabaseExerciseRow } from "../types/exe-types"
-import { SupabaseRoutineRow } from "../types/routine-types"
+import { SupabaseExerciseRow } from "../types/services/exe-types"
+import { SupabaseRoutineRow } from "../types/services/routine-types"
 import { Exercise_Routine, Exercise_RoutineFormData, Exercise_RoutineFormState, 
-    SupabaseExercise_RoutineRow } from "../types/routineExe-types"
+    SupabaseExercise_RoutineRow } from "../types/services/routineExe-types"
 import { mapSupabaseRowToExe } from "./mapping_exe"
 import { mapSupabaseRowToRoutine } from "./mapping_routine"
 
