@@ -44,6 +44,7 @@ export function RoutineTable({ routines, exercise_routines, totalRoutines,
                                         {/* <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.time_finish)}</td> */}
                                         <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.created_at)}</td>
                                         <td className="px-4 py-5 font-semibold text-white">{formatDate(routine.updated_at)}</td>
+                                        <td className="px-4 py-5 font-semibold text-white">{routine.carga_total}</td>
                                         <td className="px-4 py-5">
                                             <div className="flex items-center gap-3 text-slate-500">
                                                 <Button2Edit

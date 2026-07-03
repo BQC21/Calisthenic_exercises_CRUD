@@ -12,6 +12,7 @@ import { handlerSelector } from "@/features/view/hooks/modals/useHandler";
 import { useSelectionHandlers } from "@/features/view/hooks/modals/useSelectionHandlers";
 import { AddDateTimeField } from "../../Form_fields/AddDateTimeField";
 import { AddRoutineModalProps } from "@/lib/types/components/modals";
+import { compute_total_volume } from "@/lib/utils/computes";
 
 export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModalProps){
 
@@ -124,7 +125,16 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                                     Nivel
                                                 </th>
                                                 <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
-                                                    Acciones
+                                                    Series
+                                                </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Reps
+                                                </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Peso extra
+                                                </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Carga total
                                                 </th>
                                             </tr>
                                         </thead>
@@ -140,6 +150,18 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             {item.level}
+                                                        </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
+                                                            {item.series}
+                                                        </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
+                                                            {item.reps}
+                                                        </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
+                                                            {item.extra_weight}
+                                                        </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
+                                                            {compute_total_volume(item.series, item.reps, item.extra_weight)}
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5">
                                                             <button

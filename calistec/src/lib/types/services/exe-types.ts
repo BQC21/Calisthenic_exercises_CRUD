@@ -11,6 +11,9 @@ export type SelectedExerciseItem = {
     title: string | undefined;
     focus:string | undefined;
     level: string | undefined;
+    series: number | undefined;
+    reps: number | undefined;
+    extra_weight: number | undefined;
 };
 
 // Campos de la base de datos
