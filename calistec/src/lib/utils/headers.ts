@@ -2,6 +2,7 @@ export const Exercise_TABLE_HEADERS = [
     "Ejercicio",
     "Enfoque",
     "Dificultad",
+    "Carga total",
     // eventos
     "Acciones"
 ]
