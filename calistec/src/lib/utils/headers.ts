@@ -2,7 +2,6 @@ export const Exercise_TABLE_HEADERS = [
     "Ejercicio",
     "Enfoque",
     "Dificultad",
-    "Carga total",
     // eventos
     "Acciones"
 ]
@@ -14,6 +13,7 @@ export const Routine_TABLE_HEADERS = [
     // "Hora de fin",
     "Creado",
     "Actualizado",
+    "Carga total",
     // eventos
     "Acciones"
 ]
