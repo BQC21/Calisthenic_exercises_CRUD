@@ -13,6 +13,8 @@ import { useSelectionHandlers } from "@/features/view/hooks/modals/useSelectionH
 import { AddDateTimeField } from "../../Form_fields/AddDateTimeField";
 import { AddRoutineModalProps } from "@/lib/types/components/modals";
 import { compute_total_volume } from "@/lib/utils/computes";
+import { AddNumberField } from "../../Form_fields/AddNumberField";
+import { AddReadonlyField } from "../../Form_fields/AddReadonlyField";
 
 export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModalProps){
 
@@ -36,11 +38,26 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
         })
     }
 
+    function updateExerciseTableField(
+        id: SelectedExerciseItem["id"],
+        field: "series" | "reps" | "extra_weight",
+        value: number,
+    ) {
+        setSelectedExerciseTable((current) =>
+            current.map((row) => (row.id === id ? { ...row, [field]: value } : row)),
+        );
+    }
+
     async function handleSubmit(event: React.FormEvent<HTMLFormElement>){
         event.preventDefault();
 
         await onAddRoutine({
             ...form,
+            carga_total: compute_total_volume(
+                selectedExerciseTable.map((item) => Number(item.series)).reduce((acc, curr) => acc + curr, 0) || 0, 
+                selectedExerciseTable.map((item) => Number(item.reps)).reduce((acc, curr) => acc + curr, 0) || 0, 
+                selectedExerciseTable.map((item) => Number(item.extra_weight)).reduce((acc, curr) => acc + curr, 0) || 0
+            ) || 0
         }, selectedExerciseTable)
     }
 
@@ -136,6 +153,9 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                                 <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
                                                     Carga total
                                                 </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Acciones
+                                                </th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -152,16 +172,31 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                                             {item.level}
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
-                                                            {item.series}
+                                                            <AddNumberField
+                                                                label= "cantidad de series"
+                                                                value={Number(item.series)}
+                                                                onChange={(value) => updateExerciseTableField(item.id, "series", value)}
+                                                            />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
-                                                            {item.reps}
+                                                            <AddNumberField
+                                                                label= "cantidad de reps"
+                                                                value={Number(item.reps)}
+                                                                onChange={(value) => updateExerciseTableField(item.id, "reps", value)}
+                                                            />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
-                                                            {item.extra_weight}
+                                                            <AddNumberField
+                                                                label= "peso extra"
+                                                                value={Number(item.extra_weight)}
+                                                                onChange={(value) => updateExerciseTableField(item.id, "extra_weight", value)}
+                                                            />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
-                                                            {compute_total_volume(item.series, item.reps, item.extra_weight)}
+                                                            <AddReadonlyField
+                                                                label= "Volumen total de ejercicio"
+                                                                value={String(compute_total_volume(item.series, item.reps, item.extra_weight))}
+                                                            />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5">
                                                             <button

@@ -9,6 +9,7 @@ import { AddCloseIcon } from "../../icons/AddCloseIcon";
 import { AddTextField } from "../../Form_fields/AddTextField";
 import { SelectionRow } from "../../Form_fields/AddSelectionRow";
 import { EditRoutineModalProps } from "@/lib/types/components/modals";
+import { compute_total_volume } from "@/lib/utils/computes";
 
 export default function UpdateRoutineModal({
     existingRoutine, existingRoutineExercise,
@@ -48,6 +49,9 @@ export default function UpdateRoutineModal({
                 title: item.exercise_info?.title,
                 focus: item.exercise_info?.focus,
                 level: item.exercise_info?.level,
+                series: undefined,
+                reps: undefined,
+                extra_weight: undefined,
             })),
     );
 
@@ -64,6 +68,11 @@ export default function UpdateRoutineModal({
 
         await onUpdateRoutine({
             ...form,
+            carga_total: compute_total_volume(
+                selectedExerciseTable.map((item) => Number(item.series)).reduce((acc, curr) => acc + curr, 0) || 0, 
+                selectedExerciseTable.map((item) => Number(item.reps)).reduce((acc, curr) => acc + curr, 0) || 0, 
+                selectedExerciseTable.map((item) => Number(item.extra_weight)).reduce((acc, curr) => acc + curr, 0) || 0
+            ) || 0
         }, selectedExerciseTable)
     }
 
@@ -148,6 +157,15 @@ export default function UpdateRoutineModal({
                                                     Nivel
                                                 </th>
                                                 <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Series
+                                                </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Repeticiones
+                                                </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                    Peso extra
+                                                </th>
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
                                                     Acciones
                                                 </th>
                                             </tr>
@@ -165,6 +183,9 @@ export default function UpdateRoutineModal({
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             {item.level}
                                                         </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black"> {item.series} </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black"> {item.reps} </td>
+                                                        <td className="border-b border-slate-200 px-4 py-5 font-medium text-black"> {item.extra_weight} </td>
                                                         <td className="border-b border-slate-200 px-4 py-5">
                                                             <button
                                                                 type="button"
