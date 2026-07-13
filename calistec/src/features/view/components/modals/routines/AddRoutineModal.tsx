@@ -132,28 +132,28 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                     <table className="min-w-full border-separate border-spacing-0">
                                         <thead className="sticky top-0 z-10 bg-slate-100">
                                             <tr className="bg-slate-100 text-left">
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Ejercicio seleccionado
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Enfoque
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Nivel
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Series
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Reps
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Peso extra
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Carga total
                                                 </th>
-                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.02rem] font-bold text-slate-900">
+                                                <th className="border-b border-slate-200 px-4 py-4 text-[1.00rem] font-bold text-slate-900">
                                                     Acciones
                                                 </th>
                                             </tr>
@@ -173,29 +173,29 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddNumberField
-                                                                label= "cantidad de series"
-                                                                value={Number(item.series)}
+                                                                label= "cantidad de series" 
+                                                                value={Number(item.series)} min={1}
                                                                 onChange={(value) => updateExerciseTableField(item.id, "series", value)}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddNumberField
                                                                 label= "cantidad de reps"
-                                                                value={Number(item.reps)}
+                                                                value={Number(item.reps)} min={1}
                                                                 onChange={(value) => updateExerciseTableField(item.id, "reps", value)}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddNumberField
                                                                 label= "peso extra"
-                                                                value={Number(item.extra_weight)}
+                                                                value={Number(item.extra_weight)} min={0}
                                                                 onChange={(value) => updateExerciseTableField(item.id, "extra_weight", value)}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddReadonlyField
                                                                 label= "Volumen total de ejercicio"
-                                                                value={String(compute_total_volume(item.series, item.reps, item.extra_weight))}
+                                                                value={String(compute_total_volume(Number(item.series), Number(item.reps), Number(item.extra_weight)))}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5">

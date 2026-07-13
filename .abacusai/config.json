@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tsc *)",
+      "Bash(npx next build *)",
+      "Bash(NEXT_PUBLIC_SUPABASE_URL=https://lssjiizmymqdokkzpzbs.supabase.co *)",
+      "Bash(curl *)",
+      "Bash(python3 *)"
+    ]
+  }
+}

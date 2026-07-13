@@ -3,9 +3,12 @@ export const FOCUS_OPTIONS = [
 	"Front lever",
 	"Muscle up",
 	"Core",
+	"Legs",
+	"Balance",
 	"Básico",
-	"Variantes",
-	"Empuje"
+	"Unilateralidad",
+	"Planche",
+	"Explosividad"
 ];
 
 
