@@ -2,7 +2,7 @@ import { AddNumberFieldProps } from "@/lib/types/components/form_fields";
 import { AddFieldLabel } from "./AddFieldLabel";
 
 export function AddNumberField({
-        label,
+        // label,
         required,
         value,
         onChange,
@@ -13,7 +13,7 @@ export function AddNumberField({
     }: AddNumberFieldProps) {
     return (
         <div>
-        <AddFieldLabel label={label} required={required} />
+        <AddFieldLabel label={""} required={required} />
         <input
             type="number"
             required={required}
@@ -24,9 +24,10 @@ export function AddNumberField({
             max={max}
             disabled={disabled}
             placeholder={String(min)}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 text-lg text-slate-900 
+            // class name para cambiar el color de la caja de texto a uno más oscuro
+            className="w-full rounded-xl border border-slate-300 px-1 py-3 text-lg
                     outline-none transition placeholder:text-slate-400 disabled:bg-slate-100 disabled:text-slate-500 
-                    focus:border-indigo-700 focus:ring-2 focus:ring-indigo-100"
+                    focus:border-indigo-700 focus:ring-2 focus:ring-indigo-100 text-slate-900"
         />
         </div>
     );

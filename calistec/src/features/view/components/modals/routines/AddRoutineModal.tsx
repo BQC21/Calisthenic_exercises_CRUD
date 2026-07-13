@@ -173,28 +173,28 @@ export default function AddRoutineModal({onAddRoutine, onClose}: AddRoutineModal
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddNumberField
-                                                                label= "cantidad de series" 
+                                                                label= ""
                                                                 value={Number(item.series)} min={1}
                                                                 onChange={(value) => updateExerciseTableField(item.id, "series", value)}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddNumberField
-                                                                label= "cantidad de reps"
-                                                                value={Number(item.reps)} min={1}
+                                                                label= ""
+                                                                value={Number(item.reps)} min={0}
                                                                 onChange={(value) => updateExerciseTableField(item.id, "reps", value)}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddNumberField
-                                                                label= "peso extra"
+                                                                label= ""
                                                                 value={Number(item.extra_weight)} min={0}
                                                                 onChange={(value) => updateExerciseTableField(item.id, "extra_weight", value)}
                                                             />
                                                         </td>
                                                         <td className="border-b border-slate-200 px-4 py-5 font-medium text-black">
                                                             <AddReadonlyField
-                                                                label= "Volumen total de ejercicio"
+                                                                label= ""
                                                                 value={String(compute_total_volume(Number(item.series), Number(item.reps), Number(item.extra_weight)))}
                                                             />
                                                         </td>
